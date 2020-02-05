@@ -1,0 +1,67 @@
+/* transfer to main.css */
+.logo-mob{
+    display: none;
+}
+.menu-mob{
+    display: none;
+}
+.menu-mob.overlay{
+    opacity: 0;
+    visibility: hidden;
+    display: block;
+    position: fixed;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(73, 85, 100, 0.6);
+    z-index: 200;
+    transition: all linear 0.3s;
+}
+.menu-mob.body{
+    z-index: 201;
+    position: fixed;
+    display: block;
+    top:0;
+    left: -100%;
+    width: 400px;
+    height: 100%;
+    padding: 30px 30px;
+    background: #ffffff;
+    transition: all linear 0.6s;
+}
+.active-mob{
+    opacity: 1!important;
+    visibility: initial!important;
+}
+/* 404 css */
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.center > *  {
+    margin-bottom: 3vw;
+}
+
+.f0f{
+    width: 266px;
+    height: 181px;
+    background: url('../img/404.svg') no-repeat center center;
+    background-size: contain;
+}
+.center div:first-child{
+    font-size: 1.6em;
+    text-transform: uppercase;
+    color: #34495E;
+}
+.center a{
+    font-size: 1.2em;
+    font-family: 'Open Sans';
+    text-decoration: underline;
+    color: #34548A;
+}
