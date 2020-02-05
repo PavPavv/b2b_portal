@@ -1,0 +1,82 @@
+.left-row .icon{
+    font-size: 1.8em;
+}
+.align-center{
+    display: flex;
+    align-items: flex-start;
+}
+.refund-list .btn {
+    margin-bottom: 10px;
+    padding: 0.514em 3.7em 0.514em 2.6em!important;
+    color: #818A94;
+    background: #D4D7DB url('../img/download_complaint.svg') 165px center no-repeat !important;
+}
+.refund-list div:last-child{
+    min-width: 13.5em;
+    width: 14.5em;
+    font-size: 0.98em;
+    line-height: 1.5em;
+    color: #909090;
+}
+.progress-wrap{
+    width: 75%;
+}
+.progress-title{
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    line-height: 1.5em;
+    letter-spacing: 0.01em;
+    color: #9A9A9A;
+}
+.progress-title .active{
+    color: #000000;
+}
+.progress-title div:first-child{
+    margin-right: 200px;
+}
+.progress-title div:nth-child(2){
+    margin-right: 270px;
+}
+.progress-title div:nth-child(3){
+    margin-right: 300px;
+}
+.progress-bar{
+    display: flex;
+    align-items: center;
+}
+.point{
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+   border: 1px solid #CCCCCC;
+   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0877491);
+   background: #ffffff;
+}
+.point-active{
+    border: 1px solid #A89271!important;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0877491)!important;
+}
+.line{
+    width: 316px;
+    height: 3px;
+    margin: 0 10px;
+    background: #cccccc;
+}
+.line-active{
+    background: #B8B8B8;
+}
+.check-progress{
+    background: url('../img/check-progress.svg') center 7px no-repeat;
+}
+.inProgress-progress{
+    background: url('../img/inProgress-progress.svg') center 7px no-repeat;
+}
+.solution-progress{
+    background: url('../img/solution-progress.svg') center center no-repeat;
+}
+.done-progress{
+    background: url('../img/done-progress.svg') center center no-repeat;
+}
+.progress-title{
+    display: flex;
+}
