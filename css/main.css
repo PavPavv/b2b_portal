@@ -514,8 +514,7 @@ body.no-scroll {
 }
 
 .drop-down.icon {
-  background-image: url(../img/drop-down.svg);
-  background-color: yellow;
+  background-image: url(../img/drop_down.svg);
 }
 
 .cart.icon {
@@ -633,6 +632,14 @@ body.no-scroll {
   background-image: url(../img/checkbox_dark_checked.svg);
 }
 
+.select.icon {
+  background-image: url(../img/select.svg);
+}
+
+.checked .select.icon {
+  background-image: url(../img/select_check.svg);
+}
+
 .legend.icon.expected {
   background-image: url(../img/expected.svg);
 }
@@ -718,22 +725,6 @@ body.no-scroll {
   cursor: pointer;
 }
 
-.activate:hover .head,
-.activate.open .head {
-  border-color: #34495E;
-}
-
-.activate.hover:hover .triangle,
-.activate.open .triangle {
-  transform: rotate(180deg);
-}
-
-.activate.hover:hover .drop-down,
-.activate.open .drop-down {
-  max-height: 350px;
-  opacity: 1;
-}
-
 .activate .head {
   justify-content: space-between;
   align-items: center;
@@ -744,13 +735,32 @@ body.no-scroll {
   border-radius: 3px;
 }
 
-.activate .head .title {
-  padding-right: 0.5em;
+.activate:hover .head,
+.activate.open .head {
+  border-color: #34495E;
 }
 
-.activate .head .triangle {
+.activate .head .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activate .triangle {
   width: 0.57em;
-  height: 0.357em;
+  height: 0.36em;
+  margin-left: 0.5em;
+}
+
+.activate.hover:hover .triangle,
+.activate.open .triangle {
+  transform: rotate(180deg);
+}
+
+.activate .close-btn {
+  margin-left: 0.5em;
+  width: 0.9em;
+  height: 0.9em;
 }
 
 .activate .drop-down {
@@ -773,6 +783,12 @@ body.no-scroll {
   z-index: 10;
 }
 
+.activate.hover:hover .drop-down,
+.activate.open .drop-down {
+  max-height: 350px;
+  opacity: 1;
+}
+
 .activate .drop-down .item {
   align-items: center;
   padding: 0.7em 1.5rem;
@@ -789,9 +805,9 @@ body.no-scroll {
   height: 0.857em;
 }
 
-.activate.checkbox .drop-down .item:hover {
+/* .activate.checkbox .drop-down .item:hover {
   font-weight: 600;
-}
+} */
 
 /* Поле поиска: */
 
@@ -1303,6 +1319,7 @@ form.search .close.icon {
 
 .information {
   font-size: 1.15em;
+  margin-bottom: 2em;
 }
 
 .information a {
@@ -1311,7 +1328,12 @@ form.search .close.icon {
 
 .information .head {
   margin-bottom: 1em;
+  font-weight: 600;
   color: #34495E;
+}
+
+.information > .row > div {
+  margin-right: 5em;
 }
 
 .information .item {
@@ -1432,10 +1454,12 @@ form.search .close.icon {
 /* Основные стили */
 
 .table-wrap {
+  /* display: none; */
   width: 100%;
-  max-height: 75vh;
+  max-height: 80vh;
   overflow-x: auto;
   overflow-y: auto;
+  /* visibility: hidden; */
 }
 
 .table-wrap::-webkit-scrollbar {
@@ -1506,13 +1530,13 @@ form.search .close.icon {
 }
 
 .table-head .title {
-  margin-right: 0.5em;
   color: #FFFFFF;
 }
 
 .table-head .triangle {
   width: 0.57em;
   height: 0.36em;
+  margin-left: 0.5em;
 }
 
 .table-head .resize-btn {
@@ -1537,7 +1561,7 @@ form.search .close.icon {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.table-head .resize-btn::after {
+/* .table-head .resize-btn::after {
   content: '';
   display: inline-block;
   position: absolute;
@@ -1550,15 +1574,24 @@ form.search .close.icon {
   -moz-transition: opacity 200ms;
   -o-transition: opacity 200ms;
   transition: opacity 200ms;
-}
+} */
 
-.table-head .resize-btn:hover::after {
+/* .table-head .resize-btn:hover::after {
   height: 75vh;
   opacity: 1;
+} */
+
+.table-head .activate {
+  justify-content: center;
 }
 
-.table-head .statistics .drop-down {
-  min-width: initial;
+.table-head .activate .head {
+  padding: 0;
+  background-color: initial;
+  border: none;
+}
+
+.table-head .drop-down {
   margin-left: -1.2em;
 }
 
@@ -1568,6 +1601,7 @@ form.search .close.icon {
 
 .table-body {
   color: #666666;
+  background-color: #FFFFFF;
 }
 
 .table-body td {
@@ -1596,7 +1630,11 @@ form.search .close.icon {
   height: 2em;
 }
 
-.table-body .center {
+.table .right {
+  justify-content: flex-end;
+}
+
+.table .center {
   justify-content: center;
 }
 
