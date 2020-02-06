@@ -168,8 +168,44 @@ main{
     line-height: 2.3em;
 }
 .complaint-articul{
-    margin-top: 1vw;
+    margin-top: 0.5vw;
+    margin-bottom: 2vw;
     font-size: 0.8em;
     line-height: 1em;
     color: #8596A6;
+}
+.product-status{
+    display: flex;
+    margin-bottom: 1vw;
+}
+.in-stock{
+    margin-right: 15px;
+}
+.in-stock,
+.out-of-stock{
+    display: flex;
+    align-items: center;
+}
+.in-stock div{
+    display: flex;
+    align-items: center;
+}
+.in-stock.active.icon{
+    margin-right: 3px;
+    width: 1em;
+    height: 1em;
+    background: url('../img/activeProduct.svg') center center no-repeat;
+    background-size: contain;
+}
+.in-stock.nonactive.icon{
+    margin-right: 5px;
+    width: 1em;
+    height: 1em;
+    background: url('../img/nonactiveProduct.svg') center center no-repeat;
+    background-size: contain;
+}
+.visual a{
+    font-size: 1.3em;
+    text-decoration: underline;
+    color: #34548A;
 }
