@@ -238,6 +238,7 @@ body.no-scroll {
   height: 100%;
   -webkit-transition: opacity 0.3s linear;
   -moz-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
   transition: opacity 0.3s linear;
   cursor: pointer;
   z-index: 1;
@@ -501,6 +502,10 @@ body.no-scroll {
   background-image: url(../img/search.svg);
 }
 
+.search.icon.white {
+  background-image: url(../img/search_white.svg);
+}
+
 .maximize.icon {
   background-image: url(../img/maximize.svg);
 }
@@ -553,8 +558,8 @@ body.no-scroll {
   background-image: url(../img/qty_free.svg);
 }
 
-.wait-qty.icon {
-  background-image: url(../img/qty_wait.svg);
+.arrive-qty.icon {
+  background-image: url(../img/qty_arrive.svg);
 }
 
 .warehouse-qty.icon {
@@ -1188,19 +1193,21 @@ form.search .close.icon {
   width: 31em;
 }
 
+.header-menu .search.icon.white {
+  margin-right: 1em;
+}
+
 .header-menu #page-search {
   position: absolute;
   left: 0;
+  right: 1em;
   width: auto;
   margin-right: 2em;
-  -webkit-transition: 200ms;
-  -moz-transition: 200ms;
-  -o-transition: 200ms;
-  transition: 200ms;
+  visibility: hidden;
 }
 
-.header-menu #page-search.onfocus {
-  right: 1em;
+.header-menu #page-search.open {
+  visibility: visible;
 }
 
 .header-menu #header-cart {
@@ -1581,18 +1588,9 @@ form.search .close.icon {
   opacity: 1;
 } */
 
-.table-head .activate {
-  justify-content: center;
-}
-
 .table-head .activate .head {
-  padding: 0;
   background-color: initial;
   border: none;
-}
-
-.table-head .drop-down {
-  margin-left: -1.2em;
 }
 
 .table-head .drop-down .item {

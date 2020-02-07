@@ -244,7 +244,22 @@ body {
 }
 
 .filter-item .drop-down.icon {
+  width: 0.6em;
+  height: 0.6em;
   margin-left: 0.5em;
+  transform: rotate(90deg);
+  -webkit-transition: 100ms;
+  -moz-transition: 100ms;
+  -o-transition: 100ms;
+  transition: 100ms;
+}
+
+.filter-item.close .drop-down.icon {
+  transform: rotate(0deg);
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
 }
 
 .filter-item.close .filter-subitems {
@@ -639,11 +654,10 @@ body {
 .card-manuf {
   width: 100%;
   max-width: 50em;
-  padding-bottom: 1.5em;
 }
 
 .manuf-table {
-  font-size: 0.85em;
+  font-size: 0.857em;
 }
 
 #manuf-headers,
@@ -764,9 +778,13 @@ body {
  Стили для большой карточки:
 ===================================================================================================== */
 
+/* Стили для большой карточки экипировки: */
+
 .big-card {
+  position: relative;
   width: 100%;
   height: 16em;
+  min-height: 16em;
   margin: 0 0 -1px 0;
   padding: 1em;
   background-color: rgb(255, 255, 255);
@@ -778,19 +796,14 @@ body {
   border-top: none;
 }
 
-.big-card > div {
-  height: 100%;
-}
-
 .big-card .container-left {
   align-items: center;
-  width: calc(100% - 19.5em);
+  width: 82%;
 }
 
 .big-card .card-content {
   width: calc(100% - 17.5em);
   height: 100%;
-  border-right: 1px solid rgba(133, 150, 166, 0.2);
 }
 
 .big-card .carousel {
@@ -844,7 +857,7 @@ body {
 }
 
 .big-card .card-size {
-  width: 19em;
+  width: 18.5em;
 }
 
 .big-card .tooltips {
@@ -852,16 +865,14 @@ body {
 }
 
 .big-card .container-right {
-  justify-content: space-between;
-  width: 19.5em;
+  width: 18%;
+  height: 100%;
   padding-left: 1em;
-}
-
-.big-card .container-right > div {
-  width: 100%;
+  border-left: 1px solid rgba(133, 150, 166, 0.2);
 }
 
 .big-card .card-options {
+  width: 100%;
   height: 14.5em;
   overflow: hidden;
 }
@@ -875,16 +886,84 @@ body {
   max-width: 10em;
 }
 
+.big-card .card-fade {
+  position: absolute;
+  height: 3em;
+  width: 40%;
+  bottom: 1px;
+  right: 1px;
+  background: linear-gradient(to bottom, rgb(255,255,255,0), rgb(255,255,255));
+  z-index: 1;
+}
+
 .big-card .details {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
   text-decoration: underline;
-  align-self: flex-end;
   cursor: pointer;
   font-size: 0.857em;
+  z-index: 2;
+}
+
+/* Стили для большой карточки ЗИП: */
+
+#content.zip .big-card {
+  height: 17em;
+  min-height: 17em;
+}
+
+#content.zip .big-card.open {
+  height: auto !important;
+}
+
+#content.zip .big-card .container-left {
+  width: 60%;
+}
+
+#content.zip .big-card .card-title {
+  width: 100%;
+}
+
+#content.zip .big-card .card-select {
+  width: calc(100% - 14em);
+}
+
+#content.zip .big-card .card-sizes {
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+
+#content.zip .big-card .select-info {
+  margin-left: 4em;
+}
+
+#content.zip .big-card .container-right {
+  justify-content: flex-start;
+  width: 40%;
+}
+
+#content.zip .big-card .card-options {
+  height: auto;
+  overflow: visible;
+  margin-bottom: 1.5em;
+}
+
+#content.zip .big-card .option-title {
+  min-width: 14em;
+  max-width: 14em;
+}
+
+#content.zip .big-card .details {
+  right: 1em;
+  top: 1em;
 }
 
 /* =====================================================================================================
  Стили для полной карточки:
 ===================================================================================================== */
+
+/* Стили для полной карточки экипировки: */
 
 #full-card-container {
   display: none;
@@ -908,25 +987,6 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
 }
-
-/* .full-card:hover {
-  overflow-y: scroll;
-}
-
-.full-card::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-.full-card::-webkit-scrollbar-track {
-  background-color: #D4D7DB;
-}
-
-.full-card::-webkit-scrollbar-thumb {
-  background-color: rgb(52,73,94,0.5);
-  border: 3px solid #D4D7DB;
-  border-radius: 10px;
-} */
 
 .full-card .card-head,
 .full-card .card-body,
@@ -1072,6 +1132,30 @@ body {
   padding-bottom: 0.5em;
   font-weight: 600;
 }
+
+/* Стили для полной карточки ЗИП: */
+
+#content.zip .full-card .carousel-gallery-wrap {
+  min-height: 28em;
+}
+
+#content.zip .full-card .card-choice {
+  min-height: 28em;
+}
+
+#content.zip .full-card .card-opt {
+  min-height: 22em;
+  padding: 1.5em 0;
+  padding-left: 3rem;
+}
+
+#content.zip .full-card .card-options {
+  min-height: auto;
+  margin-bottom: 1.5em;
+  padding: 0;
+  padding-left: 0;
+}
+
 
 /* =====================================================================================================
  Стили для изображения на весь экран:
