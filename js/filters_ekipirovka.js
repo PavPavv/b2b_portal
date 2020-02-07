@@ -87,7 +87,7 @@ var dataFilters = [{
   title: 'Категория',
   isOpen: 'true',
   key: 'cat',
-  items: cats
+  items: catsubs
   // items: sortObjByKey(cats)
 }, {
   title: 'Бренд',

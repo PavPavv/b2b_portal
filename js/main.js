@@ -387,21 +387,6 @@ function onBlurInput(input) {
   input.value = input.dataset.value;
 }
 
-// Разворачивание поля поиска в шапке сайта:
-
-function onFocusSearch(form) {
-  form.classList.add('onfocus');
-}
-
-// Сворачивание поля поиска в шапке сайта:
-
-function onBlurSearch(form) {
-  event.preventDefault();
-  setTimeout(() => {
-    form.classList.remove('onfocus');
-  }, 100);
-}
-
 // Запрет на ввод в инпут любого значения кроме цифр:
 
 function checkValue(event) {
@@ -598,7 +583,9 @@ function DropDown(obj, type, curArray) {
       this.head.addEventListener('click', event => this.toggleFilter(event));
     }
     this.items.forEach(el => el.addEventListener('click', event => this.checkItem(event)));
-    // this.closeBtn.addEventListener('click', event => this.clearFilter(event));
+    if (this.closeBtn) {
+      this.closeBtn.addEventListener('click', event => this.clearFilter(event));
+    }
   }
   this.setEventListeners();
 
@@ -632,7 +619,7 @@ function DropDown(obj, type, curArray) {
         this.filter.classList.remove('open');
       }
       if (this.filter.classList.contains('checkbox')) {
-        this.title.textContent = 'Выбрано значений: ' + checked.length;
+        this.title.textContent = 'Выбрано: ' + checked.length;
         var value = [];
         checked.forEach(el => value.push(el.dataset.value));
         this.filter.dataset.value = value;
@@ -653,25 +640,34 @@ function DropDown(obj, type, curArray) {
 // Работа с таблицами:
 //=====================================================================================================
 
-// function openTable(id) {
-//   var table = new Table(document.getElementById(id));
-//   table.init();
-// }
+// openTable();
 
-var table = document.querySelector('.table-wrap');
-if (table) {
-  table = new Table(table);
-  setTimeout(() => {
-    table.alignColumns();
-  }, 1000);
+// Открытие таблицы:
+
+function openTable(id) {
+  document.querySelectorAll('.table-wrap').forEach(el => {
+    hideElement(el);
+    el.style.visibility = 'hidden';
+  });
+  var table;
+  if (id) {
+    table = new Table(document.getElementById(id), tableData);
+  } else {
+    table = new Table(document.querySelector('.table-wrap'), tableData);
+  }
+  table.init();
 }
+
+// Объект таблицы:
 
 function Table(obj, data) {
   // Элементы для работы:
   this.table = obj;
   this.head = obj.querySelector('.table-head');
+  this.results = this.head.querySelector('.results');
   this.body = obj.querySelector('.table-body');
   this.resizeBtns = this.head.querySelectorAll('.resize-btn');
+  this.activates = obj.querySelectorAll
 
   // Константы:
   this.rowTemplate = this.body.innerHTML;
@@ -680,9 +676,15 @@ function Table(obj, data) {
   // Динамические переменные:
   this.curColumn = null;
   this.startOffset = 0;
+  this.countItems = 0;
+  this.countItemsTo = 0;
+  this.itemsToLoad,
+  this.incr = 60;
 
   // Установка обработчиков событий:
   this.setEventListeners = function() {
+    this.table.addEventListener('scroll', () => this.scrollTable());
+
     if (this.resizeBtns.length > 0) {
       this.resizeBtns.forEach(el => el.addEventListener('mousedown', (event) => this.startResize(event)));
       this.table.addEventListener('mouseleave', () => this.stopResize());
@@ -691,6 +693,79 @@ function Table(obj, data) {
     }
   }
   this.setEventListeners();
+
+  // Инициализация таблицы:
+
+  this.init = function() {
+    showElement(loader, 'flex');
+    showElement(this.table);
+    this.loadNext(this.data);
+    this.alignColumns();
+    this.table.style.visibility = 'visible';
+    hideElement(loader);
+  }
+
+  // Загрузка данных в таблицу:
+
+  this.loadNext = function(data) {
+    if (data) {
+      this.countItems = 0;
+      this.itemsToLoad = data;
+    } else {
+      this.countItems = this.countItemsTo;
+    }
+    // console.log(this.countItemsTo);
+    // console.log(this.itemsToLoad.length);
+    if (this.countItemsTo == this.itemsToLoad.length) {
+      return;
+    }
+    this.countItemsTo = this.countItems + this.incr;
+    if (this.countItemsTo > this.itemsToLoad.length) {
+      this.countItemsTo = this.itemsToLoad.length;
+    }
+    var list = '', newEl;
+    for (let i = this.countItems; i < this.countItemsTo; i++) {
+      newEl = this.rowTemplate;
+      newEl = createElByTemplate(newEl, this.itemsToLoad[i]);
+      list += newEl;
+    }
+    if (this.countItems === 0) {
+      this.body.innerHTML = list;
+    } else {
+      this.body.insertAdjacentHTML('beforeend', list);
+      console.log(this.body.children);
+      // console.log(this.countItemsTo);
+      // console.log(this.countItems);
+      for (let i = 0; i <= this.countItemsTo - this.countItems; i++) {
+        console.log(this.body.children[i]);
+        this.body.removeChild(this.body.children[i]);
+      }
+      // console.log(this.body.children);
+    }
+  }
+
+  // Подгрузка таблицы при скролле:
+
+  // var tempScrollTop, currentScrollTop = 0;
+  this.scrollTable = function() {
+    // currentScrollTop = this.table.scrollTop;
+
+    // if (tempScrollTop < currentScrollTop) {
+    //   //scrolling down
+    // } else if (tempScrollTop > currentScrollTop) {
+    //   //scrolling up
+    // }
+    // tempScrollTop = currentScrollTop;
+    if (this.table.scrollTop + this.table.clientHeight >= this.table.scrollHeight) {
+      // console.log(this.table.scrollTop);
+      // console.log(this.table.clientHeight);
+      // console.log(this.table.scrollHeight);
+      this.loadNext();
+    }
+    // if (this.table.scrollTop * 2 + this.table.clientHeight < this.table.scrollHeight) {
+    //   this.loadPrev();
+    // }
+  }
 
   // Выравнивание столбцов таблицы при загрузке:
   this.alignColumns = function() {
@@ -706,6 +781,15 @@ function Table(obj, data) {
         bodyCell.style.minWidth = newWidth + 'px';
         bodyCell.style.maxWidth = newWidth + 'px';
     });
+  }
+
+  // Подсчет итогов таблицы:
+
+  this.countResults = function() {
+    if (!this.results) {
+      return;
+    }
+
   }
 
   // Запуск перетаскивания столбца:
@@ -755,7 +839,7 @@ function extractProps(template) {
 
 function fillByTemplate(template, data, target) {
   var list = createListByTemplate(template, data);
-  target.insertAdjacentHTML('beforeend', list);
+  target.innerHTML = list;
 }
 
 // Создание списка элементов на основе шаблона:

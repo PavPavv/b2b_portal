@@ -1,7 +1,5 @@
 'use strict';
 
-showElement(loader, 'flex');
-
 //=====================================================================================================
 // Первоначальные данные для работы:
 //=====================================================================================================
@@ -160,8 +158,9 @@ function getProductInfo(id) {
 // Преобразование:
 // - данных о картинках в карточке товара из строки в массив;
 // - данных о годах в укороченный формат
-// - добавление пробелов
-// Сортировка товаров по категориям (чтобы не отражались на сайте вразноброс):
+// Добавление:
+// - данных о текущей цене
+// - общего количества
 
 function convertItems() {
   if (pageId == '_lodki') {
@@ -175,6 +174,12 @@ function convertItems() {
     item.images = item.images.toString().split(';');
     item.price_cur = item.price_preorder1 == 0 ? item.price : item.price_preorder;
     item.price_cur1 = item.price_preorder1 == 0 ? item.price1 : item.price_preorder1;
+    item.qty = parseInt(item.free_qty, 10) + parseInt(item.arrive_qty, 10);
+    if (item.sizes && item.sizes != 0) {
+      for (let key in item.sizes) {
+        item.sizes[key].qty = parseInt(item.sizes[key].free_qty, 10) + parseInt(item.sizes[key].arrive_qty, 10);
+      }
+    }
     if (item.manuf) {
       try {
         manuf = JSON.parse(item.manuf);
@@ -184,7 +189,6 @@ function convertItems() {
       item.manuf = manuf;
     }
   });
-  items.sort(dynamicSort(('catid')));
 }
 
 //=====================================================================================================
@@ -200,7 +204,7 @@ var fullCardCarousel = {
 };
 
 var fullImgCarousel = {
-  durationNav: 400,
+  durationNav: 400
 };
 
 // Установка ширины малых карточек товаров:
@@ -365,6 +369,9 @@ function openPage(event) {
 // Изменение контента страницы:
 
 function renderContent() {
+  if (path[path.length - 1].indexOf('=') >= 0) {
+    path.pop();
+  }
   changePageTitle();
   toggleMenuItems();
   createDinamicLinks();
@@ -584,11 +591,11 @@ function setFilterOnPage(filter) {
   menuFilters.querySelectorAll('.filter-item').forEach(el => {
     key = el.dataset.key;
     value = el.dataset.value;
-    var filterData = filter.toLowerCase().split('=');
-    if (key.toLowerCase() === filterData[0] && value.toLowerCase() === filterData[1]) {
+    var filterData = decodeURI(filter).toLowerCase().split('=');
+    if (key.toLowerCase() == filterData[0] && value.toLowerCase() == filterData[1]) {
       saveFilter(key, value);
     }
-  });;
+  });
 }
 
 // Сброс данных поиска :
@@ -1439,18 +1446,16 @@ function onBlurOemInput(input) {
 
 var countItems = 0,
     countItemsTo = 0,
-    itemsToLoad;
+    itemsToLoad,
+    incr;
 
 function loadCards(cards) {
-	if (cards){
+	if (cards) {
     countItems = 0;
     itemsToLoad = cards;
-	}
-	else {
+	} else {
     countItems = countItemsTo;
   }
-
-  var incr;
   if (window.innerWidth > 2000) {
     if (view === 'list') {
       incr = 30;
@@ -1542,6 +1547,9 @@ function createCard(data) {
   .replace('#isOldPrice#', data.price_preorder1 > 0 ? '' : 'hidden')
   .replace('#isBorder#', data.price_preorder1 > 0 ? '' : 'borderNone')
   .replace('#markup#', ((data.price_user1 - data.price_cur1) / data.price_cur1 * 100).toFixed(0))
+  .replace('#isFree#', data.free_qty > 0 ? '' : 'displayNone')
+  .replace('#isArrive#', data.arrive_qty > 0 ? '' : 'displayNone')
+  .replace('#isWarehouse#', data.warehouse_qty > 0 ? '' : 'displayNone')
   .replace('#isManuf#', isManuf ? '' : 'displayNone')
   .replace('#isDesc#', data.desc ? '' : 'displayNone')
   newCard = createElByTemplate(newCard, data);
@@ -1580,7 +1588,7 @@ function createSizes(template, data) {
     newEl = template
     .replace('#isClick#', sizeInfo.size ? '' : 'click')
     .replace('#isFree#', sizeInfo.free_qty > 0 ? '' : 'displayNone')
-    .replace('#isWait#', sizeInfo.wait_qty > 0 ? '' : 'displayNone')
+    .replace('#isArrive#', sizeInfo.arrive_qty > 0 ? '' : 'displayNone')
     .replace('#isWarehouse#', sizeInfo.warehouse_qty > 0 ? '' : 'displayNone');
     newEl = createElByTemplate(newEl, sizeInfo);
     list += newEl;
@@ -1935,9 +1943,6 @@ function closeFullImg(event) {
 //  Сортировка карточек товаров:
 //=====================================================================================================
 
-// document.querySelectorAll('.activate.select').forEach(el => new DropDown(el));
-// document.querySelectorAll('.activate.checkbox').forEach(el => new DropDown(el));
-
 // Сортировка карточек товаров на странице:
 
 var gallerySort = document.getElementById('gallery-sort');
@@ -2053,4 +2058,10 @@ function clearPageSearch() {
   hideElement(pageSearchInfo);
   showElement(filtersInfo, 'flex');
   pageSearchInput.value = '';
+}
+
+// Разворачивание поля поиска в шапке сайта:
+
+function openPageSearch() {
+  pageSearch.classList.add('open');
 }
