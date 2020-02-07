@@ -8,3 +8,101 @@
 .table-head th:last-child .resize-btn{
     height: 0;
 }
+
+
+#alerts-container1  {
+  display: block;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(52, 73, 94, 0.9);
+  z-index: 200;
+}
+
+#alerts-container1 .alerts.pop-up {
+  position: relative;
+  top: 20%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  background-color: #FFFFFF;
+  margin-right: 1rem;
+  overflow: hidden;
+}
+
+#alerts-container1 .alerts-title {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1rem 1em 2.7rem;
+}
+
+#alerts-container1 .alerts-title .row {
+  align-items: center;
+}
+
+#alerts-container1 .alerts-title .title {
+  letter-spacing: 0.04em;
+  margin-left: 0.8em;
+}
+
+#alerts-container1 .alerts.icon {
+  width: 1.86em;
+  height: 1.86em;
+  cursor: default;
+}
+
+#alerts-container1 .close-btn {
+  width: 1.43em;
+  height: 1.43em;
+}
+
+#alerts-body1 {
+  height: 100%;
+  padding: 0 3rem;
+  overflow-y: auto;
+}
+
+#alerts-body1::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+#alerts-body1::-webkit-scrollbar-track {
+  background-color: #D4D7DB;
+}
+
+#alerts-body1::-webkit-scrollbar-thumb {
+  background-color: rgb(52,73,94,0.5);
+  border: 3px solid #D4D7DB;
+  border-radius: 10px;
+}
+
+#alerts-body1 > .message {
+  align-items: center;
+  padding: 0.5em 0;
+  border-bottom: 1px solid #DBDBDB;
+}
+
+#alerts-body1 .message.icon {
+  margin-right: 1em;
+  width: 1.36em;
+  height: 1.36em;
+}
+
+#alerts-body1 > .message a {
+  letter-spacing: 0.014em;
+  text-decoration: underline;
+}
+
+#alerts-body1 > .message .date {
+  font-size: 0.64em;
+  letter-spacing: 0.02em;
+  color: #858585;
+  background-color: #FFFFFF;
+}
+#alerts-container1 .title{
+    text-transform: unset;
+}
