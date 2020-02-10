@@ -539,12 +539,87 @@
                 </svg>
             </div>
             <div id="alerts-body1">
-
+                <div class="row">
+                    <div class="col more-top-space">
+                        <div class="order-info">
+                            К заказу №ТС-677 от 19.06.2019
+                        </div>
+                        <div class="order-info">
+                            Балаклава SIXS DBX, взрослые, унисекс (Black Carbon, OS)
+                        </div>
+                        <div class="order-info" data-id="id">Артикул X00DBXUNNEFI</div>
+                    </div>
+                    <div class="col">
+                        <div class="order-info">
+                            <img src="http://b2b.topsports.ru/c/source/10414.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row explanation">
+                    <div class="col">
+                        <div class="order-info title">
+                            Категория обращения: 
+                        </div>
+                        <div class="order-info more-top-space">
+                            <div class="select icon"></div>
+                            <span>Производственный брак</span>
+                        </div>
+                        <div class="order-info more-top-space">
+                            <div class="select icon"></div>
+                            <span>Некомплектность</span>
+                        </div>
+                        <div class="order-info more-top-space">
+                            <div class="checked">
+                                <div class="select icon"></div>
+                            </div>
+                            <span>Недосдача</span>
+                        </div>
+                        <div class="order-info more-top-space">
+                            <div class="select icon"></div>
+                            <span>Пересорт</span>
+                        </div>
+                        <div class="order-info more-top-space">
+                            <div class="select icon"></div>
+                            <span>Несоответствие описанию</span>
+                        </div>
+                        <div class="order-info more-top-space">
+                            <div class="select icon"></div>
+                            <span>Не могу определить</span>
+                        </div>
+                   </div>
+                   <div class="col">
+                        <div class="order-info title">
+                            Описание дефекта:
+                        </div>
+                        <textarea></textarea>
+                        <div class="buttons">
+                            <div class="basic btn">Отмена</div>
+                            <div class="active btn">Подать рекламацию</div>
+                        </div>
+                   </div> 
+                </div>
             </div>
         </div>
     </div>
 
     
     <script src="../js/main.js"></script>
+    <script>
+        'use strict';
+        const alertsContainer1 = document.querySelector('#alerts-container1');
+
+        function showMessages() {
+            openPopUp(alertsContainer1, 'flex');
+        }
+
+        // Закрытие окна уведомлений:
+
+        function closeMessages(event) {
+            if (!event.target.closest('.close-btn') && event.target.closest('.alerts.pop-up')) {
+                return;
+            }
+            closePopUp(alertsContainer1);
+        }
+    </script>
 </body>
 </html>
