@@ -164,23 +164,29 @@
     
             </div>
             <!-- Индикаторы состояния-->
-           <div class="progress-wrap container1">
-                <div class="progress-title">
-                    <div class="active">Зарегистрирована</div>
-                    <div class="active">Обрабатывается</div>
-                    <div>Решение</div>
-                    <div>Исполнена</div>
-                </div>
+            <div class="progress-wrap container1">
                 <div class="progress-bar">
-                    <div class="point point-active check-progress"></div>
-                    <div class="line line-active"></div>
-                    <div class="point point-active inProgress-progress"></div>
-                    <div class="line"></div>
-                    <div class="point solution-progress"></div>
-                    <div class="line"></div>
-                    <div class="point done-progress"></div>
+                    <div class="progress-item one">
+                        <div class="progress-title active">Зарегистрирована</div>
+                        <div class="point point-active check-progress"></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-title active">Обрабатывается</div>
+                        <div class="line"></div>
+                        <div class="point point-active inProgress-progress"></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-title">Решение</div>
+                        <div class="line"></div>
+                        <div class="point solution-progress"></div>
+                    </div>
+                    <div class="progress-item" style="display: none;">
+                        <div class="progress-title">Исполнена</div>
+                        <div class="line"></div>
+                        <div class="point done-progress"></div>
+                    </div>
                 </div>
-           </div>
+            </div>
            <!-- Блок с информацией -->
            <main class="container1">
                 <div class="complaint">
@@ -597,6 +603,20 @@
         </div>
     </div>
     
+
+
+
+    <!-- test -->
+    <div class="test-wrap">
+        <div class="test">
+            <button class="first">Состояние 1</button>
+            <button class="second">Состояние 2</button>
+            <button class="third">Состояние 3</button>
+            <button class="fourth">Состояние 4</button>
+            <div class="close icon test-close"></div>
+        </div>
+    </div>
+
     <script>
     'use strict';
     //закрыть окно чата
@@ -606,6 +626,92 @@
     closeChat.addEventListener('click', function() {
         chatWrap.style.display = 'none';
     }); 
+
+    /* test */
+    const test = document.querySelector('.test-wrap');
+    const closeTest = document.querySelector('.test-close');
+    const btn1 = document.querySelector('.first');
+    const btn2 = document.querySelector('.second');
+    const btn3 = document.querySelector('.third');
+    const btn4 = document.querySelector('.fourth');
+    const progressItem = document.querySelectorAll('.progress-item');
+    const progressBar = document.querySelector('.progress-bar');
+
+    /* состояние 1 */
+    btn1.addEventListener('click', function() {
+        for (let i = 0; i < progressItem.length; i++) {
+
+            let line2 = progressItem[3].querySelector('.line');
+            line2.classList.remove('undone');
+        }
+
+        for (let i = 0; i < progressItem.length; i++) {
+
+            let point1 = progressItem[1].querySelector('.point');
+            point1.classList.remove('inprogress-active');
+            point1.classList.add('inProgress-progress');
+
+            let point2 = progressItem[2].querySelector('.point');
+            point2.classList.remove('cancel-progress');
+            point2.classList.add('solution-progress'); 
+            point2.classList.remove('approved-progress');
+
+            let point3 = progressItem[3];
+            progressBar.appendChild(point3);
+        }
+    });
+    
+    /* состояние 2 */
+    btn2.addEventListener('click', function() {
+        for (let i = 0; i < progressItem.length; i++) {
+            
+            let line3 = progressItem[3].querySelector('.line');
+            line3.classList.add('undone');     
+        }
+        
+    });
+
+
+    /* состояние 3 */
+    btn3.addEventListener('click', function() {
+        console.log('test3');
+        for (let i = 0; i < progressItem.length; i++) {
+
+            let point1 = progressItem[1].querySelector('.point');
+            point1.classList.remove('inProgress-progress');
+            point1.classList.add('inprogress-active');
+
+            let point2 = progressItem[2].querySelector('.point');
+            point2.classList.remove('solution-progress');
+            point2.classList.add('cancel-progress');
+
+            let point3 = progressItem[3];
+            progressBar.removeChild(point3);
+        }
+    });
+
+     /* состояние 4 */
+        btn4.addEventListener('click', function () {
+            console.log('test3');
+            for (let i = 0; i < progressItem.length; i++) {
+
+                let point1 = progressItem[1].querySelector('.point');
+                point1.classList.remove('inProgress-progress');
+                point1.classList.add('inprogress-active');
+
+                let point2 = progressItem[2].querySelector('.point');
+                point2.classList.remove('solution-progress');
+                point2.classList.add('approved-progress');
+                let point3 = progressItem[3];
+            }
+        });
+
+    /* скрыть панель до перезагрузки */
+    closeTest.addEventListener('click', function() {
+        test.style.display = 'none';
+    });
+
+
     </script>
     <script src="../js/main.js"></script>
 

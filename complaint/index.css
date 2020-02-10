@@ -7,19 +7,23 @@
 .container1{
     width: 70%;
 }
+
 .left-row .icon{
     font-size: 1.8em;
 }
+
 .align-center{
     display: flex;
     align-items: flex-start;
 }
+
 .refund-list .btn {
     margin-bottom: 10px;
     padding: 0.514em 3.7em 0.514em 2.6em!important;
     color: #818A94;
     background: #D4D7DB url('../img/download_complaint.svg') 165px center no-repeat !important;
 }
+
 .refund-list div:last-child{
     min-width: 13.5em;
     width: 14.5em;
@@ -27,76 +31,142 @@
     line-height: 1.5em;
     color: #909090;
 }
+
+
+/* Состояние рекламации */
 .progress-wrap{
     padding-bottom: 1.5vw;
 }
+
+.progress-bar{
+    display: flex;
+    align-items: center;
+    padding-left: 1vw;
+}
+
+.progress-item{
+    position: relative;
+    display: flex!important;
+    align-items: center;
+    width: 31%;
+    display: table;
+    height: 40px;
+}
 .progress-title{
+    position: absolute;
+    right: 8%;
+    top: -25px;
     margin-bottom: 1vw;
     font-size: 1.1em;
     font-weight: 600;
     line-height: 1.5em;
     letter-spacing: 0.01em;
     color: #9A9A9A;
+    transform: translateX(50%);
 }
-.progress-title .active{
+
+.one{
+    width: 7%;
+}
+
+.point.point-active.check-progress {
+    margin: 0 0 0 auto;
+}
+
+.line{
+    width: 16.8vw;
+    border: 1px solid #CCCCCC;
+    margin: 0 10px 0 5px;
+}
+
+.line-active{
+    background: #B8B8B8;
+}
+
+.undone{
+    border-style: dashed!important;
+}
+
+.progress-title.active{
     color: #000000;
 }
+
 .progress-title div:first-child{
     margin-right: 10.5vw;
 }
+
 .progress-title div:nth-child(2){
     margin-right: 14.5vw;
 }
+
 .progress-title div:nth-child(3){
     margin-right: 15.5vw;
 }
-.progress-bar{
-    display: flex;
-    align-items: center;
-    padding-left: 1vw;
-}
+
 .point{
    width: 2.6em;
    height: 2.6em;
+   min-width: 2.6em;
+   min-height: 2.6em;
    border-radius: 50%;
    border: 1px solid #CCCCCC;
    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0877491);
    background: #ffffff;
 }
+
 .point-active{
     border: 1px solid #A89271!important;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0877491)!important;
 }
-.line{
-    width: 16.8vw;
-    height: 3px;
-    margin: 0 10px;
-    background: #cccccc;
-}
-.line-active{
-    background: #B8B8B8;
-}
+
 .check-progress{
     background: url('../img/check-progress.svg') center center no-repeat;
+    background-size: 25px;
+    
 }
+
 .inProgress-progress{
     background: url('../img/inProgress-progress.svg') center center no-repeat;
+    background-size: 25px;
 }
+.inprogress-active{
+    background: url('../img/inprogress-active.svg') center center no-repeat;
+    background-size: 25px;   
+    border: 1px solid #D97E00!important;
+}
+
 .solution-progress{
     background: url('../img/solution-progress.svg') center center no-repeat;
+    background-size: 25px;
 }
+
 .done-progress{
     background: url('../img/done-progress.svg') center center no-repeat;
+    background-size: 25px;
 }
-.progress-title{
-    display: flex;
+
+.cancel-progress{
+    background: url('../img/cancel-progress.svg') center center no-repeat;
+    background-size: 25px;
+    border: 1px solid #D10D17!important;
 }
+
+.approved-progress{
+    background: url('../img/progress-approved.svg') center center no-repeat;
+    background-size: 25px;
+    border: 1px solid #378C22!important;
+}
+
+
+/* Основное описание рекламации */
 main{
     display: flex;
 }
+
 .container1 .complaint:first-child{
     width: 35%;
 }
+
 .container1 .complaint:last-child{
     width: 65%;
     padding-left: 50px;
@@ -105,10 +175,12 @@ main{
     align-self: stretch;
     height: 100%;
 }
+
 .complaint{
     display: flex;
     flex-direction: column;
 }
+
 .complaint-info div{
     font-family: 'Open Sans';
     font-size: 1em;
@@ -117,17 +189,21 @@ main{
     letter-spacing: 0.01em;
     color: #34495E;
 }
+
 .complaint-info div:last-child{
     margin-top: 3vw;
 }
+
 .complaint-info span,
 .complaint-info a{
     font-weight: normal;
 }
+
 .complaint-info a{
     text-decoration: underline;
     color: #34548A;
 }
+
 .visual{
     display: flex;
     flex-direction: column;
@@ -137,25 +213,30 @@ main{
     padding: 20px;
     background: #ffffff;
 }
+
 .visual img{
     max-width: 294px;
 }
+
 .visual-info{
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
+
 .complaint-title{
     font-size: 1em;
     line-height: 1.6em;
     font-weight: 600;
     color: #34495E;
 }
+
 .product-code{
     margin-bottom: 1.5vw;
     color: #8596A6;
 }
+
 .product-price{
     display: flex;
     justify-content: space-between;
@@ -166,17 +247,21 @@ main{
     line-height: 1.9em;
     color: #34495E;
 }
+
 .removeBorder{
     border: 0!important;
 }
+
 .big-cost{
    font-size: 2em;
    line-height: 1.6em;
 }
+
 .product-price:last-child span{
     font-size: 1.4em;
     line-height: 2.3em;
 }
+
 .complaint-articul{
     margin-top: 0.5vw;
     margin-bottom: 1.5vw;
@@ -184,23 +269,28 @@ main{
     line-height: 1em;
     color: #8596A6;
 }
+
 .product-status{
     display: flex;
     margin-bottom: 1vw;
     font-size: 0.8em;
 }
+
 .in-stock{
     margin-right: 15px;
 }
+
 .in-stock,
 .out-of-stock{
     display: flex;
     align-items: center;
 }
+
 .in-stock div{
     display: flex;
     align-items: center;
 }
+
 .in-stock.active.icon{
     margin-right: 3px;
     width: 1em;
@@ -208,6 +298,7 @@ main{
     background: url('../img/activeProduct.svg') center center no-repeat;
     background-size: contain;
 }
+
 .in-stock.nonactive.icon{
     margin-right: 5px;
     width: 1em;
@@ -215,14 +306,17 @@ main{
     background: url('../img/nonactiveProduct.svg') center center no-repeat;
     background-size: contain;
 }
+
 .visual a{
     font-size: 1em;
     text-decoration: underline;
     color: #34548A;
 }
+
 .complaint-descr{
     width: 80%;
 }
+
 .complaint-descr p {
     margin-top: 1vw;
     font-size: 1em;
@@ -230,16 +324,19 @@ main{
     letter-spacing: 0.01em;
     color: #707683;
 }
+
 .complaint-photo{
     width: 100%;
     margin-top: 3vw;
 }
+
 .files{
     position: relative;
     display: flex;
     flex-wrap: wrap;
     flex-flow: row wrap;
 }
+
 .image-item{
     display: flex;
     flex-direction: column;
@@ -251,6 +348,7 @@ main{
     height: 192px;
     overflow: hidden;
 }
+
 .image-item img{
     width: 100%;
     min-width: 100%;
@@ -263,16 +361,19 @@ main{
     height: 192px;
     overflow: hidden;
 }
+
 .file-select-btn{
     position: relative;
     line-height: 0;
 }
+
 .image-upload{
     height: 184px;
     position: relative;
     background: #e6e6e6;
     border: 1px solid #cbcbcb;
 }
+
 input[type=file]{
     position: absolute;
     top: 0;
@@ -281,6 +382,7 @@ input[type=file]{
     opacity: 0;
     cursor: pointer;
 }
+
 .chat-wrap{
     position: absolute;
     right: 0;
@@ -289,6 +391,7 @@ input[type=file]{
     height: 765px;
     background: #ffffff;
 }
+
 .chat-head{
     width: 100%;
     height: 35px;
@@ -300,6 +403,7 @@ input[type=file]{
     background: #A89271;
     
 }
+
 .chat-body{
     display: block;
     width: 100%;
@@ -309,19 +413,23 @@ input[type=file]{
     display: block;
     overflow-y: auto;
 }
+
 .chat-body::-webkit-scrollbar {
     width: 14px;
     border-radius: 20px;
 }
+
 .chat-body::-webkit-scrollbar-thumb {
     width: 20px;
     background: #C4C4C4;
     border: 5px solid #ffffff;
     border-radius: 16px;
 }
+
 .chat-body::-webkit-scrollbar-track {
     background: #ffffff;
 }
+
 .chat-footer{
     position: absolute;
     bottom: 0;
@@ -332,17 +440,20 @@ input[type=file]{
     height: 80px;
     padding: 0 30px;
 }
+
 .chat-wrap form {
     display: block;
     border: 1px solid #D0D0D4;
     height: 60px;
     background: white;
 }
+
 .chat-send{
     width: 88%;
     float: left;
     line-height: 0;
 }
+
 .chat-send textarea{
     outline: none;
     resize: none;
@@ -354,6 +465,7 @@ input[type=file]{
     width: 100%;
     height: 50px;
 }
+
 .chat-btn{
     position: relative;
     float: left;
@@ -361,6 +473,7 @@ input[type=file]{
     line-height: 50px;
     cursor: pointer;
 }
+
 .chat-btn input[type="submit"] {
     position: absolute;
     width: 100%;
@@ -368,19 +481,23 @@ input[type=file]{
     cursor: pointer;
     opacity: 0;
 }
+
 .chat-btn-icon{
     margin-top: 6px;
     margin-right: 15px;
     float: right;
 }
+
 .chat-message{
     display: table;
     margin-top: 5px;
     width: 100%;
 }
+
 .chat-message:last-child{
     margin-bottom: 2vw;
 }
+
 .message-date{
     display: table;
     text-align: center;
@@ -392,17 +509,20 @@ input[type=file]{
     background: #F2F2F2;
     border-radius: 12px;
 }
+
 .message-user{
     display: flex;
     justify-content: space-between;
     font-weight: bold;
     margin-bottom: 3px;
 }
+
 .message-user span{
     font-size: 0.8em;
     font-weight: normal;
     color: #979797;
 }
+
 .message-itself{
     display: block;
     margin-top: 7px;
@@ -413,6 +533,62 @@ input[type=file]{
     border-radius: 4px;
     width: 94%;
 }
+
 .user-chat{
     display: inline;
+}
+
+/* test */
+.test-wrap{
+    z-index: 1000;
+    position: absolute;
+    top: 3%;
+    right: 20%;
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(76,136,216,.5);
+    box-shadow: 0px 2px 2px 1px rgba(0,0,0,.4);
+}
+.test{
+    display: flex;
+}
+.test button{
+    margin-right: 1vw;
+    border: 0;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,.4);
+    transition: all linear .1s;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.first{
+    background: #ccc;
+}
+.second{
+    background: #5AA65C;
+}
+.third{
+    background: #980000;
+}
+.fourth{
+    background: #5236A0;
+}
+.first:hover{
+    background: gray;
+}
+.second:hover{
+    background: #307C32;    
+}
+.third:hover{
+    background: #852020;
+}
+.fourth:hover{
+    background: #40248E;
+}
+.test-close{
+    font-size: 2em;
 }

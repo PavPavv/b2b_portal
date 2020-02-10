@@ -532,7 +532,7 @@
                 <div class="row">
                     <div class="title">Мастер создания рекламации</div>
                 </div>
-                <svg class="close-btn" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                <svg id="close-btn" class="close-btn" width="20" height="20" viewBox="0 0 20 20" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.42859 1.42847L18.5714 18.5713" stroke="#34495E" stroke-linecap="round" />
                     <path d="M18.1429 1L1 18.1429" stroke="#34495E" stroke-linecap="round" />
@@ -607,19 +607,13 @@
     <script>
         'use strict';
         const alertsContainer1 = document.querySelector('#alerts-container1');
+        const closeBtn = document.querySelector('#close-btn');
 
-        function showMessages() {
-            openPopUp(alertsContainer1, 'flex');
-        }
+        closeBtn.addEventListener('click', function() {
+            console.log('test');
+            alertsContainer1.style.display = 'none';
+        });
 
-        // Закрытие окна уведомлений:
-
-        function closeMessages(event) {
-            if (!event.target.closest('.close-btn') && event.target.closest('.alerts.pop-up')) {
-                return;
-            }
-            closePopUp(alertsContainer1);
-        }
     </script>
 </body>
 </html>
