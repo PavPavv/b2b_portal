@@ -122,7 +122,7 @@
 .check-progress{
     background: url('../img/check-progress.svg') center center no-repeat;
     background-size: 25px;
-    
+
 }
 
 .inProgress-progress{
@@ -131,7 +131,7 @@
 }
 .inprogress-active{
     background: url('../img/inprogress-active.svg') center center no-repeat;
-    background-size: 25px;   
+    background-size: 25px;
     border: 1px solid #D97E00!important;
 }
 
@@ -401,7 +401,7 @@ input[type=file]{
     padding: 3px 10px 0 0;
     border-radius: 3px 3px 0px 0px;
     background: #A89271;
-    
+
 }
 
 .chat-body{
@@ -581,7 +581,7 @@ input[type=file]{
     background: gray;
 }
 .second:hover{
-    background: #307C32;    
+    background: #307C32;
 }
 .third:hover{
     background: #852020;
