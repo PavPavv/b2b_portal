@@ -155,7 +155,7 @@
                     </div>
                     <div class="left-row row align-center">
                         <div class="refund-list">
-                            <div class="basic btn">Лист возврата</div>
+                            <div id="refundList" class="basic btn">Лист возврата</div>
                             <div>Распечатайте лист возврата и вложите в посылку</div>
                         </div>
                         <div class="question icon" tooltip="Подсказки" help></div>
@@ -606,6 +606,9 @@
 
 
 
+
+
+
     <!-- test -->
     <div class="test-wrap">
         <div class="test">
@@ -636,55 +639,82 @@
     const btn4 = document.querySelector('.fourth');
     const progressItem = document.querySelectorAll('.progress-item');
     const progressBar = document.querySelector('.progress-bar');
+		const refundList = document.querySelector('#refundList');
 
     /* состояние 1 */
     btn1.addEventListener('click', function() {
+			refundList.classList.remove('refundList');
 
-        for (let i = 0; i < progressItem.length; i++) {
+			for (let i = 0; i < progressItem.length; i++) {
 
-					let point1 = progressItem[1].querySelector('.point');
-					point1.classList.remove('inprogress-active');
-					point1.classList.add('inProgress-progress');
-					let text1 = progressItem[1].querySelector('.progress-title');
-					text1.style.color = '#000000';
+				let point1 = progressItem[1].querySelector('.point');
+				point1.classList.remove('inprogress-active');
+				point1.classList.add('inProgress-progress');
+				let text1 = progressItem[1].querySelector('.progress-title');
+				text1.style.color = '#000000';
+				let line1 = progressItem[1].querySelector('.line');
+				line1.removeAttribute('style');
 
-					let point2 = progressItem[2].querySelector('.point');
-					point2.classList.remove('cancel-progress');
-					point2.classList.add('solution-progress');
-					point2.classList.remove('approved-progress');
-					let text2 = progressItem[2].querySelector('.progress-title');
-          text2.innerHTML = 'Решение';
-					text2.style.color = '#9A9A9A';
-					
-					let line2 = progressItem[3].querySelector('.line');
-          line2.classList.remove('undone');
-					let point3 = progressItem[3];
-					progressBar.appendChild(point3);					
-				}
+				let point2 = progressItem[2].querySelector('.point');
+				point2.classList.remove('cancel-progress');
+				point2.classList.add('solution-progress');
+				point2.classList.remove('approved-progress');
+				let text2 = progressItem[2].querySelector('.progress-title');
+				text2.innerHTML = 'Решение';
+				text2.style.color = '#9A9A9A';
+				let line22 = progressItem[2].querySelector('.line');
+				line22.removeAttribute('style');
+				
+				let line2 = progressItem[3].querySelector('.line');
+				line2.classList.remove('undone');
+				let point3 = progressItem[3];
+				progressBar.appendChild(point3);
+				let point33 = progressItem[3].querySelector('.point');
+				point33.classList.remove('done-progress-active');
+				point33.classList.add('done-progress');	
+				let line3 = progressItem[3].querySelector('.line');
+				line3.classList.remove('undone');
+				line3.removeAttribute('style');
+				let text3 = progressItem[3].querySelector('.progress-title');
+				text3.removeAttribute('style');			
+			}
     });
 
     /* состояние 2 */
     btn2.addEventListener('click', function() {
+			refundList.classList.add('refundList');
+			
+			
       for (let i = 0; i < progressItem.length; i++) {
 
-          let point1 = progressItem[1].querySelector('.point');
-          point1.classList.remove('inprogress-active');
-          point1.classList.add('inProgress-progress');
-					let text1 = progressItem[1].querySelector('.progress-title');
-					text1.style.color = '#000000';
+				let point1 = progressItem[1].querySelector('.point');
+				point1.classList.remove('inprogress-active');
+				point1.classList.add('inProgress-progress');
+				let text1 = progressItem[1].querySelector('.progress-title');
+				text1.style.color = '#000000';
+				let line1 = progressItem[1].querySelector('.line');
+				line1.removeAttribute('style');
 
-          let point2 = progressItem[2].querySelector('.point');
-          point2.classList.remove('cancel-progress');
-          point2.classList.add('solution-progress');
-          point2.classList.remove('approved-progress');
-					let text2 = progressItem[2].querySelector('.progress-title');
-          text2.innerHTML = 'Решение';
-					text2.style.color = '#9A9A9A';
+				let point2 = progressItem[2].querySelector('.point');
+				point2.classList.remove('cancel-progress');
+				point2.classList.remove('approved-progress');
+				point2.classList.add('solution-progress');
+				let text2 = progressItem[2].querySelector('.progress-title');
+				text2.innerHTML = 'Решение';
+				text2.style.color = '#9A9A9A';
+				let line22 = progressItem[2].querySelector('.line');
+				line22.removeAttribute('style');
 
-          let point3 = progressItem[3];
-          progressBar.appendChild(point3);
-          let line3 = progressItem[3].querySelector('.line');
-          line3.classList.add('undone');
+				let point3 = progressItem[3];
+				progressBar.appendChild(point3);
+				let line3 = progressItem[3].querySelector('.line');
+				line3.classList.add('undone');
+				line3.removeAttribute('style');
+				let point33 = progressItem[3].querySelector('.point');
+				point33.classList.remove('done-progress-active');
+				point33.classList.add('done-progress');
+				let text3 = progressItem[3].querySelector('.progress-title');
+				text3.removeAttribute('style');
       }
 
     });
@@ -692,44 +722,65 @@
 
     /* состояние 3 */
     btn3.addEventListener('click', function() {
-        // console.log('test3');
-        for (let i = 0; i < progressItem.length; i++) {
+			// console.log('test3');
+			for (let i = 0; i < progressItem.length; i++) {
 
 
-          let point1 = progressItem[1].querySelector('.point');
-          point1.classList.remove('inProgress-progress');
-          point1.classList.add('inprogress-active');
-          let text1 = progressItem[1].querySelector('.progress-title');
-					text1.style.color = '#D97E00';
+				let point1 = progressItem[1].querySelector('.point');
+				point1.classList.remove('inProgress-progress');
+				point1.classList.add('inprogress-active');
+				let text1 = progressItem[1].querySelector('.progress-title');
+				text1.style.color = '#D97E00';
+				let line1 = progressItem[1].querySelector('.line');
+				line1.style.borderColor = '#A89271';
 
-          let point2 = progressItem[2].querySelector('.point');
-          point2.classList.remove('solution-progress');
-          point2.classList.add('cancel-progress');
-          let text2 = progressItem[2].querySelector('.progress-title');
-          text2.innerHTML = 'Не удоволетворена';
-					text2.style.color = '#D10D17';
+				let point2 = progressItem[2].querySelector('.point');
+				point2.classList.remove('solution-progress');
+				point2.classList.remove('approved-progress');
+				point2.classList.add('cancel-progress');
+				let text2 = progressItem[2].querySelector('.progress-title');
+				text2.innerHTML = 'Не удоволетворена';
+				text2.style.color = '#D10D17';
+				let line2 = progressItem[2].querySelector('.line');
+				line2.style.borderColor = '#A89271';
 
-        	let point3 = progressItem[3];
-        	progressBar.removeChild(point3);
-        }
+				let point3 = progressItem[3];
+				progressBar.removeChild(point3);
+			}
     });
 
-     /* состояние 4 */
-        btn4.addEventListener('click', function () {
-            console.log('test3');
-            for (let i = 0; i < progressItem.length; i++) {
+    /* состояние 4 */
+		btn4.addEventListener('click', function () {
+			console.log('test3');
+			for (let i = 0; i < progressItem.length; i++) {
 
-                let point1 = progressItem[1].querySelector('.point');
-                point1.classList.remove('inProgress-progress');
-                point1.classList.add('inprogress-active');
+					let point1 = progressItem[1].querySelector('.point');
+					point1.classList.remove('inProgress-progress');
+					point1.classList.add('inprogress-active');
+					let line1 = progressItem[1].querySelector('.line');
+					line1.style.borderColor = '#A89271';
 
-                let point2 = progressItem[2].querySelector('.point');
-                point2.classList.remove('solution-progress');
-                point2.classList.add('approved-progress');
+					let point2 = progressItem[2].querySelector('.point');
+					point2.classList.remove('solution-progress');
+					point2.classList.add('approved-progress');
+					let text2 = progressItem[2].querySelector('.progress-title');
+					text2.innerHTML = 'Удоволетворена';
+					text2.style.color = '#378C22';
+					let line2 = progressItem[2].querySelector('.line');
+					line2.style.borderColor = '#A89271';
 
-                let point3 = progressItem[3];
-            }
-        });
+					let point33 = progressItem[3];
+					progressBar.appendChild(point33);
+					let point3 = progressItem[3].querySelector('.point');
+					point3.classList.remove('done-progress');
+					point3.classList.add('done-progress-active');
+					let line3 = progressItem[3].querySelector('.line');
+					line3.classList.add('undone');
+					line3.style.borderColor = '#A89271';
+					let text3 = progressItem[3].querySelector('.progress-title');
+					text3.style.color = '#3E228C';
+			}
+		});
 
     /* скрыть панель до перезагрузки */
     closeTest.addEventListener('click', function() {
