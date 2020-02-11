@@ -10,11 +10,7 @@
     padding: 20px 30px 20px 38px;
     background: #ffffff;
 }
-.map{
-    width: 75.41vw;
-    height: 41.7187vw;
-    background:lightblue;
-}
+
 #map{
     width: 100%;
     height: auto;

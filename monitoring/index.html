@@ -152,8 +152,8 @@
             <!-- Хлебные крошки -->
             <div id="main-header">
                 <div id="main-nav">
-                    <a href="../">Главная</a>
-                    <a class="../">Заказы</a>
+                    <a href="../../">Главная</a>
+                    <a href="../" class="item">Заказы</a>
                     <a class="item active">Заказ № ТС-180 от 23.03.2018 г.</a>
                 </div>
                 <div class="main-title row">
@@ -166,14 +166,16 @@
                     </div>
                 </div>
             </div>
+            <!-- Карта с мониторами -->
+            <div id="map"></div>
             <!-- Таблица -->
-            <div class="table-wrap">
+            <div id="monitorTable" class="table-wrap">
                 <table class="table positioned">
                     <thead class="table-head">
                         <tr>
                             <th id="1">
                                 <div class="row">
-                                    <div class="title">Столбец №1</div>
+                                    <div class="title">Магазин</div>
                                     <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
@@ -183,7 +185,7 @@
                             </th>
                             <th id="2">
                                 <div class="row">
-                                    <div class="title">Столбец №2</div>
+                                    <div class="title">Адрес</div>
                                     <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
@@ -193,7 +195,7 @@
                             </th>
                             <th id="3">
                                 <div class="row">
-                                    <div class="title">Столбец №3</div>
+                                    <div class="title">Город</div>
                                     <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
@@ -203,7 +205,7 @@
                             </th>
                             <th id="4">
                                 <div class="row">
-                                    <div class="title">Столбец №4</div>
+                                    <div class="title">Контакт</div>
                                     <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
@@ -213,7 +215,7 @@
                             </th>
                             <th id="5">
                                 <div class="row">
-                                    <div class="title">Столбец №5</div>
+                                    <div class="title">Телефон</div>
                                     <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
@@ -223,7 +225,7 @@
                             </th>
                             <th id="6">
                                 <div class="row">
-                                    <div class="title">Столбец №6</div>
+                                    <div class="title">Первый запуск</div>
                                     <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
@@ -233,7 +235,7 @@
                             </th>
                             <th id="7">
                                 <div class="row">
-                                    <div class="title">Столбец №7</div>
+                                    <div class="title">Последний запуск</div>
                                     <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
@@ -243,7 +245,7 @@
                             </th>
                             <th id="8">
                                 <div class="row">
-                                    <div class="title">Столбец №8</div>
+                                    <div class="title">Сессии</div>
                                     <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
@@ -253,23 +255,61 @@
                             </th>
                             <th id="9">
                                 <div class="row">
-                                    <div class="title">Столбец №9</div>
-                                    <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
-                                    </svg>
+                                    <div class="title">Заказы</div>
                                 </div>
                                 <div class="resize-btn"></div>
                             </th>
                             <th id="10">
                                 <div class="row">
-                                    <div class="title">Столбец №10</div>
-                                    <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white" />
-                                    </svg>
+                                    <div class="title">Конверсия</div>
                                 </div>
                                 <!-- <div class="resize-btn"></div> -->
+                            </th>
+                        </tr>
+                        <tr class="results">
+                            <th>
+                                <div class="row">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="row">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="row">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="row">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="row">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="row">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="row">
+                                </div>
+                            </th>
+                            <th>
+                                <div class="row right">
+                                    <div>Итого:</div>
+                                    <div class="price-opt-total">789</div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="row right">
+                                    <div>Итого:</div>
+                                    <div class="price-retail-total">859</div>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="row">
+                                </div>
                             </th>
                         </tr>
                     </thead>
@@ -279,52 +319,318 @@
                         <tr>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 1</div>
+                                    <div>TOP Sports</div>
+                                    <div class="indicator indicator_1"></div>
                                 </div>
                             </td>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 2</div>
+                                    <div>Тверская улица, дом 13, г.Москва, РФ</div>
                                 </div>
                             </td>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 3</div>
+                                    <div>Москва</div>
                                 </div>
                             </td>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 4</div>
+                                    <div>Виктор</div>
                                 </div>
                             </td>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 5</div>
+                                    <div>+7(937)087-21-88</div>
                                 </div>
                             </td>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 6</div>
+                                    <div>28.10.2019</div>
                                 </div>
                             </td>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 7</div>
+                                    <div>22.01.2020</div>
                                 </div>
                             </td>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 8</div>
+                                    <div>85</div>
                                 </div>
                             </td>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 9</div>
+                                    <div>22</div>
                                 </div>
                             </td>
                             <td>
                                 <div class="row">
-                                    <div>Информация столбца 10</div>
+                                    <div>65%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div>TOP Sports</div>
+                                    <div class="indicator indicator_1"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Тверская улица, дом 13, г.Москва, РФ</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Москва</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Виктор</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>+7(937)087-21-88</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>28.10.2019</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22.01.2020</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>85</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>65%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div>TOP Sports</div>
+                                    <div class="indicator indicator_1"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Тверская улица, дом 13, г.Москва, РФ</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Москва</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Виктор</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>+7(937)087-21-88</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>28.10.2019</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22.01.2020</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>85</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>65%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div>TOP Sports</div>
+                                    <div class="indicator indicator_2"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Тверская улица, дом 13, г.Москва, РФ</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Москва</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Виктор</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>+7(937)087-21-88</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>28.10.2019</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22.01.2020</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>85</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>65%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div>TOP Sports</div>
+                                    <div class="indicator indicator_3"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Тверская улица, дом 13, г.Москва, РФ</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Москва</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Виктор</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>+7(937)087-21-88</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>28.10.2019</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22.01.2020</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>85</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>25%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="row">
+                                    <div>TOP Sports</div>
+                                    <div class="indicator indicator_3"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Тверская улица, дом 13, г.Москва, РФ</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Москва</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>Виктор</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>+7(937)087-21-88</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>28.10.2019</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22.01.2020</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>85</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>22</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div>35%</div>
                                 </div>
                             </td>
                         </tr>
@@ -551,6 +857,26 @@
         </div>
     </div>
 
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        // Функция ymaps.ready() будет вызвана, когда
+        // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+        ymaps.ready(init);
+        function init() {
+            // Создание карты.
+            var myMap = new ymaps.Map("map", {
+                // Координаты центра карты.
+                // Порядок по умолчанию: «широта, долгота».
+                // Чтобы не определять координаты центра карты вручную,
+                // воспользуйтесь инструментом Определение координат.
+                center: [55.76, 37.64],
+                // Уровень масштабирования. Допустимые значения:
+                // от 0 (весь мир) до 19.
+                zoom: 7
+            });
+        }
+    </script>
     <script src="../js/main.js"></script>
 </body>
 
