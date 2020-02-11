@@ -361,8 +361,13 @@
 
 .cart-row .amount > .qty {
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  width: 100%;
+}
+
+.cart-row .amount > .qty > div {
+  width: 8em;
 }
 
 .cart-row .amount .available-qty {

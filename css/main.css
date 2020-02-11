@@ -665,8 +665,8 @@ body.no-scroll {
   background-image: url(../img/shipped.svg);
 }
 
-.legend.icon.shortage {
-  background-image: url(../img/shortage.svg);
+.legend.icon.non-delivery {
+  background-image: url(../img/non_delivery.svg);
 }
 
 .checked .legend.icon.expected {
@@ -685,8 +685,8 @@ body.no-scroll {
   background-image: url(../img/shipped_check.svg);
 }
 
-.checked .legend.icon.shortage {
-  background-image: url(../img/shortage_check.svg);
+.checked .legend.icon.non-delivery {
+  background-image: url(../img/non_delivery_check.svg);
 }
 
 .cart .message.icon {
@@ -818,8 +818,11 @@ body.no-scroll {
 .activate.hover:hover .drop-down,
 .activate.open .drop-down {
   max-height: 350px;
-  overflow-y: auto;
   opacity: 1;
+}
+
+.activate.open .drop-down {
+  overflow-y: auto;
 }
 
 .activate[disabled] .head .drop-down {
@@ -841,10 +844,6 @@ body.no-scroll {
   width: 0.857em;
   height: 0.857em;
 }
-
-/* .activate.checkbox .drop-down .item:hover {
-  font-weight: 600;
-} */
 
 /* Поле поиска: */
 
@@ -885,8 +884,8 @@ form.search .close.icon {
 
 /* Информация о количестве в кружке: */
 
-.count {
-  /* display: none; */
+.qty.in-circle {
+  display: none;
   position: absolute;
   justify-content: center;
   width: 1.76em;
@@ -945,13 +944,13 @@ form.search .close.icon {
   height: 6em;
 }
 
-#loader .message {
+#loader .text {
   text-align: center;
 }
 
-/* Сообщение об ошибке на странице: */
+/* Окно для вывода сообщений: */
 
-#error-container {
+#message-container {
   display: none;
   position: fixed;
   justify-content: center;
@@ -966,7 +965,7 @@ form.search .close.icon {
   z-index: 300;
 }
 
-#error-container .close-btn {
+#message-container .close-btn {
   position: absolute;
   top: 0;
   right: 0;
@@ -976,15 +975,15 @@ form.search .close.icon {
   z-index: 1;
 }
 
-#error-container svg path {
+#ermessageror-container svg path {
   stroke: rgb(255, 255, 255);
 }
 
-#error-container svg:hover path {
+#message-container svg:hover path {
   /* fill: rgb(241,90,41); */
 }
 
-#error {
+#message-container .text {
   width: 400px;
   max-width: 90vw;
   padding: 2em;
@@ -1063,10 +1062,6 @@ form.search .close.icon {
   height: 0.32em;
 }
 
-.header-top .activate:hover .triangle {
-  transform: rotate(180deg);
-}
-
 .header-top .drop-down {
   position: static;
   max-width: initial;
@@ -1077,10 +1072,6 @@ form.search .close.icon {
 
 .header-top .drop-down .item {
   padding: 1em 1.5rem;
-}
-
-.header-top .drop-down:not(.catalogs) .item:hover {
-  background-color: #E4E3E7;
 }
 
 .header-top .catalog {
@@ -1109,7 +1100,7 @@ form.search .close.icon {
   margin-right: 0.5em;
 }
 
-.header-top .cart-info .amount {
+.header-top .cart-info .qty {
   width: 3em;
   color: #666666;
   text-align: center;
@@ -1117,13 +1108,9 @@ form.search .close.icon {
   border-radius: 50px;
 }
 
-.header-top .cart-info .amount.full {
+.header-top .cart-info .qty.full {
   color: #FFFFFF;
   background-color: #E74C3C;
-}
-
-.header-top .cart-info a:hover .amount:not(.full) {
-  background-color: #FFFFFF;
 }
 
 .header-top .cart-info:hover {
@@ -1259,8 +1246,7 @@ form.search .close.icon {
   margin-right: 0.7em;
 }
 
-.header-menu .count {
-  display: none;
+.header-menu .qty.in-circle {
   top: -0.3em;
   right: -1em;
 }
@@ -1432,8 +1418,8 @@ form.search .close.icon {
 }
 
 #alerts-container .alerts.icon {
-  width: 1.86em;
-  height: 1.86em;
+  width: 1.85em;
+  height: 1.85em;
   cursor: default;
 }
 

@@ -7,12 +7,114 @@ body {
 }
 
 /* =====================================================================================================
+ Стили для фильтров OEM:
+===================================================================================================== */
+
+#zip-select {
+  display: none;
+  background-color: #818D99;
+}
+
+#zip-select .container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.zip-filters {
+  align-items: center;
+  padding: 0.45em 0;
+}
+
+.zip-filters .activate {
+  margin-right: 1.5em;
+}
+
+.zip-filters .activate:last-child {
+  margin-right: 0;
+}
+
+.zip-filters .activate .head {
+  padding: 0.15em 1.5rem;
+}
+
+#select-man {
+  width: 18em;
+}
+
+#select-years {
+  width: 10em;
+}
+
+#select-model {
+  width: 18em;
+}
+
+.zip-filters .close.icon {
+  width: 0.8em;
+  height: 0.8em;
+  visibility: hidden;
+}
+
+.zip-filters .close.icon.active {
+  visibility: visible;
+}
+
+#oem-search {
+  position: relative;
+  width: 18em;
+  padding: 0;
+}
+
+#oem-search .search.icon {
+  margin-left: 0.3125em;
+  margin-right: 0.5em;
+}
+
+#oem-search .close.icon {
+  display: none;
+  margin-left: 0.5em;
+  margin-right: 0.3125em;
+}
+
+#oem-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  padding-top: 0.4em;
+  background-color: #FFFFFF;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  z-index: 1;
+}
+
+#oem-not-found {
+  display: none;
+  padding: 0.35em 0.75em;
+  background-color: rgb(240,240,240);
+}
+
+#oem-list {
+  display: none;
+  max-height: 28em;
+  overflow-y: scroll;
+}
+
+#oem-list .oem {
+  padding: 0.35em 0.75em;
+  cursor: pointer;
+}
+
+#oem-list .oem:hover{
+  background-color: #E4E3E7;
+}
+
+/* =====================================================================================================
  Стили для заголовка каталога товаров:
 ===================================================================================================== */
 
 #header-content {
   display: none;
-  font-size: 0.875em;
   background-color: #F2F2F2;
 }
 
@@ -490,7 +592,7 @@ body {
   font-weight: 600;
 }
 
-.select-count {
+.select-qty {
   margin-right: 1.5em;
 }
 
@@ -753,7 +855,7 @@ body {
 
 .min-card .tooltips {
   align-items: center;
-  font-size: 0.857em;
+  font-size: 1.14em;
   height: 100%;
 }
 
@@ -765,7 +867,7 @@ body {
   margin-right: 0.2em;
 }
 
-.min-card .count {
+.min-card .qty.in-circle {
   top: -0.2em;
   right: -0.5em;
 }
@@ -974,7 +1076,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(43,46,56,0.9);
+  background-color: rgba(52, 73, 94, 0.9);
   z-index: 300;
 }
 
@@ -1156,7 +1258,6 @@ body {
   padding-left: 0;
 }
 
-
 /* =====================================================================================================
  Стили для изображения на весь экран:
 ===================================================================================================== */
@@ -1221,138 +1322,3 @@ body {
  Стили для отдельной страницы товара:
 ===================================================================================================== */
 
-
-/* =====================================================================================================
- Стили для фильтров OEM:
-===================================================================================================== */
-
-.zip-select {
-  display: none;
-  background-color: rgb(241,90,41);
-}
-
-#zip-filters {
-  position: relative;
-  justify-content: flex-start;
-  align-items: center;
-  width: 65%;
-}
-
-.select-item {
-  margin-right: 3.125em;
-  padding: 0.5rem 0;
-}
-
-.select-item {
-  padding: 0.5rem 0;
-}
-
-#zip-filters .item-model {
-  margin-right: 0;
-}
-
-.item-man {
-  width: 25%;
-}
-
-.item-years {
-  width: 25%;
-}
-
-.item-model {
-  width: 50%;
-}
-
-#zip-filters .tooltip {
-  margin-left: 0.8em;
-}
-
-#zip-filters .close-btn {
-  position: relative;
-  font-size: 1.3em;
-  color: rgb(248,172,148);
-}
-
-#zip-filters .close-btn.active {
-  color: rgb(255,255,255);
-  opacity: 0.85;
-}
-
-#zip-filters .close-btn.active:hover {
-  opacity: 1;
-}
-
-.select-item select {
-  width: 100%;
-  height: 2.8rem;
-  padding: 0 0.75em;
-  font-size: 1em;
-  line-height: 1.2;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  background-color: rgb(255,255,255);
-  border: none;
-  border-radius: 2px;
-  outline: none;
-}
-
-.select-item select[disabled] {
-  opacity: 0.5;
-}
-
-#oem-search {
-  position: relative;
-  width: 25%;
-  margin-right: 0;
-  padding: 0.5rem 0;
-}
-
-#oem-search .search-btn {
-  left: 0;
-}
-
-#oem-search .clear-search-btn {
-  display: none;
-}
-
-#oem-search-input {
-  width: 100%;
-  height: 2.8rem;
-  padding: 0 2em;
-  font-size: 1em;
-  line-height: 1.5;
-  color: rgb(136,136,136);
-  background-color: rgb(255,255,255);
-  border-radius: 2px;
-}
-
-#oem-dropdown {
-  display: none;
-  position: absolute;
-  top: 80%;
-  width: 100%;
-  padding-top: 0.5em;
-  background-color: rgb(255,255,255);
-  border-radius: 2px;
-}
-
-#oem-not-found {
-  display: none;
-  padding: 0.35em 0.75em;
-  background-color: rgb(240,240,240);
-}
-
-#oem-list {
-  display: none;
-  max-height: 28em;
-  overflow-y: scroll;
-}
-
-#oem-list .oem {
-  padding: 0.35em 0.75em;
-  cursor: pointer;
-}
-
-.zip-select .oem:hover{
-  background-color: rgb(0,136,204);
-}

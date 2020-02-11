@@ -24,7 +24,7 @@ var discounts = [{
   dtype: 'numplusnum',
   dnv: 6,
   dnvex: 1,
-  diart: [29760],
+  diart: [55771],
   diartex: 0,
   dartprice: 0,
   dartexprice: 0,
@@ -76,6 +76,6 @@ var discounts = [{
   diartex: 0,
   dartprice: 0,
   dartexprice: 0,
-  dcondition: {razdel: 'lodki'},
+  dcondition: {cartId: 'ekip'},
   dconditionex: 0
 }];
