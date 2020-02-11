@@ -130,7 +130,7 @@
 }
 
 #alerts-body1 .order-info {
-  font-size: 0.9em;
+  font-size: 1em;
   line-height: 1.6em;
   letter-spacing: 0.01em;
   color: #666666;
@@ -147,7 +147,12 @@
 }
 
 .order-info span{
+  font-size: 0.9em;
   margin-left: 15px;
+}
+
+.order-info .checked + span {
+  font-weight: bold;
 }
 
 .order-info img{
@@ -165,10 +170,12 @@
 }
 
 #alerts-body1 .buttons{
-	margin-top: 20px;
+  margin-top: 20px;
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .buttons .basic{
