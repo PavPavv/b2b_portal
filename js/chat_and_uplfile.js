@@ -99,15 +99,23 @@ $(function () {
 		var h = dateMy.getHours();
 		var m = dateMy.getMinutes();
 		var s = dateMy.getSeconds();
-		var dateMyTime = h + ':' + m;
+		/* var dateMyTime = h + ':' + m; */
 		var month = (date.getMonth() < 10) ? '0' + parseInt(date.getMonth() + 1) : parseInt(date.getMonth() + 1);
 		var day = (date.getDate() < 10) ? '0' + date.getDate() : date.getDate();
 		var hour = (date.getHours() < 10) ? '0' + date.getHours() : date.getHours();
 		var minutes = (date.getMinutes() < 10) ? '0' + date.getMinutes() : date.getMinutes();
+
+
+		/* var hour = (dateMy.getHours() < 10) ? '0' + dateMy.getHours() : dateMy.getHours();
+		var minutes = (dateMy.getMinutes() < 10) ? '0' + dateMy.getMinutes() : dateMy.getMinutes(); */
+
+
+
+
 		var time = hour + ':' + minutes;
 		date = time + ' ' + day + '.' + month + '.' + date.getFullYear();
 		if (message != '') {
-			$('.chat').append('<div class="data">' + dateMy.toLocaleDateString() + '</div><div class="chat_message_cont you owner"><div class="chat_message"><div class="chat_user name message-user">' + user + '<span>' + dateMyTime + '</span></div><div class="chat_text text">' + messagebr + '</div></div></div>');
+			$('.chat').append('<div class="data">' + dateMy.toLocaleDateString() + '</div><div class="chat_message_cont you owner"><div class="chat_message"><div class="chat_user name message-user">' + user + '<span>' + dateMy.toLocaleTimeString().match(/\d{2}:\d{2}|[AMP]+/g).join(' ') + '</span></div><div class="chat_text text">' + messagebr + '</div></div></div>');
 //			$(".chat").scrollTop(0);
 			$(".chat").scrollTop($(".chat").get(0).scrollHeight);
 			$.ajax({
