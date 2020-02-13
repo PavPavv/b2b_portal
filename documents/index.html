@@ -106,7 +106,7 @@
                             <a id="exit" class="item" class="menu-item" href="#">Выйти</a>
                         </div>
                     </div>
-                    <div class="alerts icon" onclick="showAlerts()">
+                    <div class="alerts icon" onclick="openPopUp('alerts-container')">
                         <div class="qty in-circle row">12</div>
                     </div>
                 </div>
@@ -286,7 +286,7 @@
 
 
     <!-- Окно уведомлений -->
-    <div id="alerts-container" class="row" onclick="closeMessages(event)">
+    <div id="alerts-container" class="row" onclick="closePopUp(event)">
         <div class="alerts pop-up">
             <div class="alerts-title row">
                 <div class="row">

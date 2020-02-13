@@ -28,11 +28,8 @@ if (isCart) {
 //=====================================================================================================
 
 setPaddingToBody();
-
-if (!cartContent) {
-  window.addEventListener('focus', updateCartTotals);
-  updateCartTotals();
-}
+window.addEventListener('focus', updateCartTotals);
+updateCartTotals();
 
 //=====================================================================================================
 // Полифиллы:
@@ -93,22 +90,27 @@ function sendRequest(url, data, type = 'application/json; charset=utf-8') {
 // Получение данных корзины с сервера:
 
 // function getCart(totals = false) {
-//   var url, info;
+//   var url;
 //   if (totals) {
-//     url = urlRequest + `cart_totals.txt`;
-//     info = cartTotals;
+//     url = urlRequest + 'cart';
 //   } else {
-//     url = urlRequest + `cart_${cartId}.txt`;
-//     info = cart[cartId];
+//     url = urlRequest + 'cartTotals';
 //   }
 //   return new Promise((resolve, reject) => {
 //     sendRequest(url)
 //     .then(
 //       result => {
-//         if (JSON.stringify(info) === result) {
-//           reject(new Error('Корзина не изменилась'));
+//         if (totals && JSON.stringify(cartTotals) === result) {
+//           reject('Корзина не изменилась');
+//         } else if (JSON.stringify(cart[cartId]) === result) {
+//           reject('Корзина не изменилась');
 //         } else {
-//           info = JSON.parse(result);
+//           console.log('Корзина обновилась');
+//           if (totals) {
+//             cartTotals = JSON.parse(result);
+//           } else {
+//             cart[cartId] = JSON.parse(result);
+//           }
 //           resolve();
 //         }
 //       }
@@ -122,23 +124,26 @@ function sendRequest(url, data, type = 'application/json; charset=utf-8') {
 // Получение данных корзины из cookie:
 
 function getCart(totals = false) {
-  var key, info;
+  var key;
   if (totals) {
-    key = `${website}_cartTotals`;
+    key = `cartTotals`;
   } else {
-    key = `${website}_cart_${cartId}`;
+    key = `cart_${cartId}`;
   }
   return new Promise((resolve, reject) => {
     var result = getCookie(key);
-    if (!result || JSON.stringify(info) === result) {
-      reject('Корзина пуста');
+    if (totals && (!result || JSON.stringify(cartTotals) === result)) {
+      reject('Корзина не изменилась');
+    } else if (!result || JSON.stringify(cart[cartId]) === result) {
+      reject('Корзина не изменилась');
     } else {
       if (totals) {
+        console.log('Итоги обновились');
         cartTotals = JSON.parse(result);
       } else {
+        console.log('Корзина обновилась');
         cart[cartId] = JSON.parse(result);
       }
-      info = JSON.parse(result);
       resolve();
     }
   });
@@ -182,21 +187,27 @@ function changeCartInHeader() {
 function changeCatalogCart(cartName, totals) {
   var curCart = document.getElementById(`cart-${cartName}`);
   if (curCart) {
-    var qty = curCart.querySelector('.qty');
-    if (website != 'skipper') {
+    var qty = curCart.querySelector('.qty'),
+        qtyShort = curCart.querySelector('.qty-short'),
+        amount = curCart.querySelector('.amount');
+    if (qty) {
+      qty.textContent = totals.qty;
+    }
+    if (qtyShort) {
       if (totals.qty > 0) {
-        qty.classList.add('full');
+        qtyShort.classList.add('full');
         if (totals.qty > 99) {
-          qty.textContent = '99+';
+          qtyShort.textContent = '99+';
         } else {
-          qty.textContent = totals.qty;
+          qtyShort.textContent = totals.qty;
         }
       } else {
-        qty.classList.remove('full');
-        qty.textContent = 0;
+        qtyShort.classList.remove('full');
+        qtyShort.textContent = 0;
       }
-    } else {
-      qty.textContent = totals.qty;
+    }
+    if (amount) {
+      amount.textContent = totals.amount;
     }
   }
 }
@@ -356,7 +367,7 @@ function saveInLocal(data, type) {
     if (getCookie(website)) {
       deleteCookie(website);
     }
-    setCookie(website, stringData, {expires: getDateExpires(30)});
+    setCookie(website, stringData);
   }
 }
 
@@ -411,7 +422,7 @@ function saveCookie(key, data) {
   if (getCookie(key)) {
     deleteCookie(key);
   }
-  setCookie(key, stringData, {expires: getDateExpires(30)});
+  setCookie(key, stringData);
 }
 
 // Получение данных из cookie:
@@ -430,8 +441,12 @@ function readCookie(key) {
 
 // Запись cookie:
 
-function setCookie(key, value, options) {
-  options = options || {};
+function setCookie(key, value, options = {}) {
+  options = {
+    path: '/',
+    expires: getDateExpires(30),
+    ...options
+  };
   var expires = options.expires;
 
   if (typeof expires == "number" && expires) {
@@ -533,20 +548,36 @@ function setDocumentScroll(top = scrollTop) {
 
 // Открытие всплывающего окна:
 
-function openPopUp(el, style = 'block') {
-  getDocumentScroll();
-  document.body.classList.add('no-scroll');
-  showElement(el, style);
+function openPopUp(el, style = 'flex') {
+  if (typeof el != 'object') {
+    el = document.getElementById(el);
+  }
+  if (el) {
+    getDocumentScroll();
+    document.body.classList.add('no-scroll');
+    showElement(el, style);
+  }
 }
 
 // Закрытие всплывающего окна:
 
-function closePopUp(el, style = 'none') {
-  hideElement(el, style);
-  document.body.classList.remove('no-scroll');
-  setDocumentScroll();
+function closePopUp(event, el) {
+  if (event) {
+    if (!event.target.closest('.close-btn') && event.target.closest('.pop-up')) {
+      return;
+    }
+    el = event.currentTarget;
+  } else {
+    if (typeof el != 'object') {
+      el = document.getElementById(el);
+    }
+  }
+  if (el) {
+    hideElement(el);
+    document.body.classList.remove('no-scroll');
+    setDocumentScroll();
+  }
 }
-
 
 // Отображение количества знаков, оставшихся в поле комментариев:
 
@@ -735,11 +766,14 @@ function Message(obj) {
       return;
     }
     this.text.textContent = text;
-    openPopUp(this.message, 'flex');
+    openPopUp(this.message);
+    setTimeout(() => {
+      closePopUp(null, this.message);
+    }, 2000);
   }
 
   this.hide = function() {
-    closePopUp(this.message);
+    closePopUp(null, this.message);
   }
 }
 
@@ -778,27 +812,6 @@ function goToTop() {
     window.scrollTo(0, 5000);
     goToTop();
   }
-}
-
-//=====================================================================================================
-// Работа с окном уведомлений:
-//=====================================================================================================
-
-var alertsContainer = document.getElementById('alerts-container');
-
-// Открытие окна уведомлений:
-
-function showAlerts() {
-  openPopUp(alertsContainer, 'flex');
-}
-
-// Закрытие окна уведомлений:
-
-function closeAlerts(event) {
-  if (!event.target.closest('.close-btn') && event.target.closest('.alerts.pop-up')) {
-    return;
-  }
-  closePopUp(alertsContainer);
 }
 
 //=====================================================================================================

@@ -14,13 +14,13 @@
     <link rel="stylesheet" type="text/css" href="../css/cart.css">
   </head>
 
-  <body id="_lodki" data-website="ts_b2b">
+  <body id="_boats" data-website="ts_b2b" data-cart="boats">
 
     <div class="header">
       <div class="header-top">
         <div class="container row">
           <div class="left-side row">
-            <a class="logo" href="../desktop"><img src="../img/logo.svg" alt="Логотип" /></a>
+            <a class="logo" href="../desktop"><img src="../img/logo.svg" alt="Логотип"/></a>
             <div class="row">
               <div class="activate">
                 <div class="head row">
@@ -31,37 +31,36 @@
                 <div class="head row">
                   <div class="title">Каталоги</div>
                   <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 5L-2.99379e-07 -2.9635e-07L8 2.08053e-07L4 5Z" fill="#34495E" />
+                    <path d="M4 5L-2.99379e-07 -2.9635e-07L8 2.08053e-07L4 5Z" fill="#34495E"/>
                   </svg>
                 </div>
                 <div class="drop-down">
                   <div class="row">
                     <a class="item catalog" href="../preorders">Предзаказы</a>
-                    <a id="cart-preorder" class="item cart-info row" href="../preorder/?cart">
+                    <a id="cart-preorders" class="item cart-info row" href="../preorder/?cart">
                       <div class="cart icon"></div>
-                      <div class="qty">0</div>
+                      <div class="qty-short">0</div>
                     </a>
                   </div>
                   <div class="row">
                     <a class="item catalog" href="../equipment/">Экипировка</a>
-                    <a id="cart-ekip" class="item cart-info row" href="../ekipirovka/?cart" data-href="cart" data-level="2"
-                      data-title="Корзина" onclick="openPage(event)">
+                    <a id="cart-equip" class="item cart-info row" href="../equipment/?cart" data-href="cart" data-level="2" data-title="Корзина" onclick="openPage(event)">
                       <div class="cart icon"></div>
-                      <div class="qty">0</div>
+                      <div class="qty-short">0</div>
                     </a>
                   </div>
                   <div class="row">
                     <a class="item catalog" href="../snowmobiles/">Снегоходы</a>
-                    <a id="cart-snegohod" class="item cart-info row" href="../snegohod/?cart">
+                    <a id="cart-snow" class="item cart-info row" href="../snowmobiles/?cart">
                       <div class="cart icon"></div>
-                      <div class="qty">0</div>
+                      <div class="qty-short">0</div>
                     </a>
                   </div>
                   <div class="row">
-                    <a class="item catalog" href="../boats/">Лодки и моторы</a>
-                    <a id="cart-lodki" class="item cart-info row" href="../lodki/?cart">
+                    <a class="item catalog" href="../boats/" data-href="_boats" data-level="1" data-title="Лодки и моторы" onclick="openPage(event)">Лодки и моторы</a>
+                    <a id="cart-boats" class="item cart-info row" href="../boats/?cart">
                       <div class="cart icon"></div>
-                      <div class="qty">0</div>
+                      <div class="qty-short">0</div>
                     </a>
                   </div>
                 </div>
@@ -70,7 +69,7 @@
                 <div class="head row">
                   <div class="title">Закупки</div>
                   <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 5L-2.99379e-07 -2.9635e-07L8 2.08053e-07L4 5Z" fill="#34495E" />
+                    <path d="M4 5L-2.99379e-07 -2.9635e-07L8 2.08053e-07L4 5Z" fill="#34495E"/>
                   </svg>
                 </div>
                 <div class="drop-down">
@@ -80,7 +79,7 @@
                   <a class="item" href="../certificates/">Сертификаты</a>
                 </div>
               </div>
-      
+
             </div>
           </div>
           <div class="right-side row">
@@ -113,9 +112,9 @@
       <div class="header-menu">
         <div class="container row">
           <div class="catalog row">
-            <a class="topmenu-item" href="../snegohod/" data-id="lodki" data-href="_lodki" data-level="1" data-title="Лодки и моторы" onclick="openPage(event)">Лодки и моторы</a>
-            <a class="submenu-item" href="../snegohod/?zip" data-href="zip" data-level="2" data-title="Запчасти" onclick="openPage(event)">Запчасти</a>
-            <a class="submenu-item" href="../snegohod/?acc" data-href="acc" data-level="2" data-title="Аксессуары" onclick="openPage(event)">Аксессуары</a>
+            <a class="topmenu-item active" href="../boats/" data-href="_boats" data-level="1" data-title="Лодки и моторы" onclick="openPage(event)">Лодки и моторы</a>
+            <a class="submenu-item" href="../boats/?zip" data-href="zip" data-level="2" data-title="Запчасти" onclick="openPage(event)">Запчасти</a>
+            <a class="submenu-item" href="../boats/?acc" data-href="acc" data-level="2" data-title="Аксессуары" onclick="openPage(event)">Аксессуары</a>
           </div>
           <div class="info row">
             <div class="search icon white search-manage" onclick="openPageSearch()"></div>
@@ -126,10 +125,10 @@
               </div>
               <div class="close icon" onclick="startClearPageSearch()"></div>
             </form>
-            <a id="header-cart" class="row" href="../ekipirovka/?cart" data-href="cart" data-level="2" data-title="Корзина" onclick="openPage(event)">
+            <a id="header-cart" class="row" href="../boats/?cart" data-href="cart" data-level="2" data-title="Корзина" onclick="openPage(event)">
               <div class="amount"><span>0</span>&nbsp;руб.</div>
               <div class="cart icon white">
-                <div class="count row"></div>
+                <div class="qty in-circle row">0</div>
               </div>
             </a>
           </div>
@@ -172,10 +171,6 @@
               </div>
             </div>
             <div class="close icon white" tooltip="Сброс фильтра" onclick="startClearZipFilters(this)"></div>
-            <!-- <svg class="close-btn" tooltip="Сброс фильтра" onclick="startClearZipFilters(this)" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.42859 1.42847L18.5714 18.5713" stroke="#FFFFFF" stroke-linecap="round"/>
-              <path d="M18.1429 1L1 18.1429" stroke="#FFFFFF" stroke-linecap="round"/>
-            </svg> -->
           </div>
           <form action="#" id="oem-search" class="search row" oninput="showOemList()" onsubmit="findOem(event)">
             <div class="row">
@@ -234,11 +229,11 @@
       </div>
     </div>
 
-    <div class="main">
+    <div class="main zip">
       <div class="container">
         <div id="main-header">
           <div id="main-nav">
-            <a href="../">Главная</a>
+            <a href="../desktop">Главная</a>
             <a class="item" href="#href#" data-href="#dataHref#" data-level="#level#" onclick="openPage(event)">#title#</a>
           </div>
           <div class="main-title row">
@@ -248,7 +243,7 @@
             </div>
           </div>
         </div>
-        <div id="content" class="row zip">
+        <div id="content" class="row">
           <div id="filters-container">
             <div id="filters">
               <div id="menu-filters">
@@ -285,7 +280,7 @@
           <div id="gallery" class="row">
             <div id="min-card-#object_id#" data-id="#object_id#" class="min-card card" onclick="showFullCard(#object_id#)">
               <div class="card-img-wrap">
-                <img class="card-img" src="#images#" onerror="replaceImg(this)">
+                <img class="card-img" src="#image#" onerror="replaceImg(this)">
               </div>
               <div class="card-title">
                 <div class="title">#title#</div>
@@ -298,7 +293,7 @@
                   </div>
                   <div class="old-price row">
                     <div class="card-action #isAction#">
-                      <div class="action-title" style="background-color: #actioncolor#">Акция</div>
+                      <div class="action-title" style="background-color: #actioncolor#">#actiontitle#</div>
                     </div>
                     <div class="text light #isOldPrice#">#price#</div>
                   </div>
@@ -317,7 +312,7 @@
                   </div>
                 </div>
                 <div class="cart icon in-circle">
-                  <div class="count row">0</div>
+                  <div class="qty in-circle row">0</div>
                 </div>
               </div>
             </div>
@@ -373,7 +368,7 @@
                             <div class="name row text light">#size#</div>
                             <div class="qty-box row">
                               <div class="btn-minus" tooltip="Удалить" onclick="changeCart(event)">-</div>
-                              <input class="choiced-qty text light" type="text" value="0" data-value="0" data-id="#object_id#" data-free-qty="#free_qty#" data-arrive-qty="#wait_qty#" data-warehouse-qty="#warehouse_qty#"autocomplete="off" onchange="changeCart(event)" onblur="changeCart(event)" onfocus="onFocusInput(this)" onkeypress="return checkValue(event)">
+                              <input class="choiced-qty text light" type="text" value="0" data-id="#object_id#" data-qty="#total_qty#" autocomplete="off" onchange="changeCart(event)" onblur="changeCart(event)" onfocus="onFocusInput(this)" onkeypress="return checkValue(event)">
                               <div class="btn-plus" tooltip="Добавить" onclick="changeCart(event)">+</div>
                             </div>
                             <div class="tooltips col">
@@ -394,10 +389,10 @@
                         </div>
                       </div>
                       <div class="select-info row">
-                        <div class="select-count">
+                        <div class="select-qty">
                           Выбрано товаров:&nbsp;<span class="text orange">0</span> шт.
                         </div>
-                        <div class="select-price">
+                        <div class="select-amount">
                           Итого:&nbsp;<span class="text orange">0</span> руб.
                         </div>
                       </div>
@@ -433,142 +428,142 @@
           <div id="gallery-notice" class="text orange">
             <div>По выбранным фильтрам товаров не найдено</div>
           </div>
-          <div id="full-card-container" onclick="closeFullCard(event)">
-            <div id="full-card-#object_id#" data-id="#object_id#" data-action-id="0" class="full-card card manage">
-              <div class="card-head row">
-                <div class="card-title">
-                  <div class="title">#title#</div>
-                  <div class="text light">#articul#</div>
-                </div>
-                <svg class="close-btn" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1.42859 1.42847L18.5714 18.5713" stroke="rgb(52,73,94)" stroke-linecap="round"/>
-                  <path d="M18.1429 1L1 18.1429" stroke="rgb(52,73,94)" stroke-linecap="round"/>
-                </svg>
+        </div>
+        <div id="full-card-container" onclick="closeFullCard(event)">
+          <div id="full-card-#object_id#" data-id="#object_id#" data-action-id="0" class="full-card card manage">
+            <div class="card-head row">
+              <div class="card-title">
+                <div class="title">#title#</div>
+                <div class="text light">#articul#</div>
               </div>
-              <div class="card-body row">
-                <div class="carousel" data-type="fullCard">
-                  <div class="maximize icon"></div>
-                  <div class="carousel-gallery-wrap">
-                    <div class="left-btn control"></div>
-                    <div class="right-btn control"></div>
-                    <div class="carousel-gallery">
-                      <div class="carousel-item row">
-                        <img src="#image#" data-src="#full-image#">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-content">
-                  <div class="card-choice">
-                    <div class="card-price">
-                      <div>
-                        <div class="cur-price row #isBorder#">
-                          <div class="title">Оптовая цена: </div>
-                          <div class="text orange">#price_cur#</div>
-                        </div>
-                        <div class="old-price row">
-                          <div class="card-action #isAction#">
-                            <div class="action-title" style="background-color: #actioncolor#">Акция</div>
-                          </div>
-                          <div class="text light #isOldPrice#">#price#</div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="user-price row">
-                          <div class="title">Розничная цена: </div>
-                          <div class="text">#price_user#</div>
-                        </div>
-                        <div class="markup row">
-                          <div class="title">Торговая наценка: </div>
-                          <div class="text">#markup#%</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="select-info row">
-                      <div class="select-count">
-                        Выбрано товаров:&nbsp;<span class="text orange">0</span> шт.
-                      </div>
-                      <div class="select-price">
-                        Итого:&nbsp;<span class="text orange">0</span> руб.
-                      </div>
-                    </div>
-                    <div class="card-sizes row">
-                      <div class="card-size">
-                        <div class="articul text light">#articul#</div>
-                        <div class="qty row">
-                          <div class="name row text light">#size#</div>
-                          <div class="qty-box row">
-                            <div class="btn-minus" tooltip="Удалить" onclick="changeCart(event)">-</div>
-                            <input class="choiced-qty text light" type="text" value="0" data-id="#object_id#" data-free-qty="#free_qty#" data-arrive-qty="#wait_qty#" data-warehouse-qty="#warehouse_qty#" autocomplete="off" onchange="changeCart(event)" onblur="changeCart(event)" onfocus="onFocusInput(this)" onkeypress="return checkValue(event)">
-                            <div class="btn-plus" tooltip="Добавить" onclick="changeCart(event)">+</div>
-                          </div>
-                        </div>
-                        <div class="tooltips row">
-                          <div class="free-qty #isFree# row" tooltip="В наличии">
-                            <span class="free-qty icon"></span>
-                            <span class="text green">#free_qty#&nbsp;шт.</span>
-                          </div>
-                          <div class="arrive-qty #isArrive# row" tooltip="Ожидается">
-                            <span class="arrive-qty icon"></span>
-                            <span class="text ligth">#arrive_qty#&nbsp;шт.&nbsp;#arrive_date#</span>
-                          </div>
-                          <div class="warehouse-qty #isWarehouse# row" tooltip="Склад">
-                            <span class="warehouse-qty icon"></span>
-                            <span class="text">#warehouse_qty#&nbsp;шт.</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-opt">
-                    <div class="card-options">
-                      <div class="card-option row">
-                        <div class="option-title title">#optitle#</div>
-                        <div class="option-info">#option#</div>
-                      </div>
-                    </div>
-                    <div class="card-manuf #isManuf#">
-                      <div class="manuf-table">
-                        <div id="manuf-headers" class="title row">
-                          <div class="man" data-title="man">Производитель</div>
-                          <div class="oem" data-title="oem">ОЕМ</div>
-                          <div class="model" data-title="model">Модель</div>
-                          <div class="years" data-title="years">Год модели</div>
-                        </div>
-                        <div class="manuf-row row">
-                          <div class="#cat#">#info#</div>
-                        </div>
-                      </div>
+              <svg class="close-btn" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.42859 1.42847L18.5714 18.5713" stroke="rgb(52,73,94)" stroke-linecap="round"/>
+                <path d="M18.1429 1L1 18.1429" stroke="rgb(52,73,94)" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="card-body row">
+              <div class="carousel" data-type="fullCard">
+                <div class="maximize icon"></div>
+                <div class="carousel-gallery-wrap">
+                  <div class="left-btn control"></div>
+                  <div class="right-btn control"></div>
+                  <div class="carousel-gallery">
+                    <div class="carousel-item row">
+                      <img src="#image#" data-src="#full-image#">
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="card-info">
-                <div class="card-desc #isDesc#">
-                  <div class="subtitle">Описание товара</div>
-                  <div class="text">#desc#</div>
+              <div class="card-content">
+                <div class="card-choice">
+                  <div class="card-price">
+                    <div>
+                      <div class="cur-price row #isBorder#">
+                        <div class="title">Оптовая цена: </div>
+                        <div class="text orange">#price_cur#</div>
+                      </div>
+                      <div class="old-price row">
+                        <div class="card-action #isAction#">
+                          <div class="action-title" style="background-color: #actioncolor#">Акция</div>
+                        </div>
+                        <div class="text light #isOldPrice#">#price#</div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="user-price row">
+                        <div class="title">Розничная цена: </div>
+                        <div class="text">#price_user#</div>
+                      </div>
+                      <div class="markup row">
+                        <div class="title">Торговая наценка: </div>
+                        <div class="text">#markup#%</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="select-info row">
+                    <div class="select-qty">
+                      Выбрано товаров:&nbsp;<span class="text orange">0</span> шт.
+                    </div>
+                    <div class="select-amount">
+                      Итого:&nbsp;<span class="text orange">0</span> руб.
+                    </div>
+                  </div>
+                  <div class="card-sizes row">
+                    <div class="card-size">
+                      <div class="articul text light">#articul#</div>
+                      <div class="qty row">
+                        <div class="name row text light">#size#</div>
+                        <div class="qty-box row">
+                          <div class="btn-minus" tooltip="Удалить" onclick="changeCart(event)">-</div>
+                          <input class="choiced-qty text light" type="text" value="0" data-id="#object_id#" data-qty="#total_qty#" autocomplete="off" onchange="changeCart(event)" onblur="changeCart(event)" onfocus="onFocusInput(this)" onkeypress="return checkValue(event)">
+                          <div class="btn-plus" tooltip="Добавить" onclick="changeCart(event)">+</div>
+                        </div>
+                      </div>
+                      <div class="tooltips row">
+                        <div class="free-qty #isFree# row" tooltip="В наличии">
+                          <span class="free-qty icon"></span>
+                          <span class="text green">#free_qty#&nbsp;шт.</span>
+                        </div>
+                        <div class="arrive-qty #isArrive# row" tooltip="Ожидается">
+                          <span class="arrive-qty icon"></span>
+                          <span class="text ligth">#arrive_qty#&nbsp;шт.&nbsp;#arrive_date#</span>
+                        </div>
+                        <div class="warehouse-qty #isWarehouse# row" tooltip="Склад">
+                          <span class="warehouse-qty icon"></span>
+                          <span class="text">#warehouse_qty#&nbsp;шт.</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="action-desc">
-                  <div class="subtitle">Условия акции</div>
-                  <div class="text"></div>
+                <div class="card-opt">
+                  <div class="card-options">
+                    <div class="card-option row">
+                      <div class="option-title title">#optitle#</div>
+                      <div class="option-info">#option#</div>
+                    </div>
+                  </div>
+                  <div class="card-manuf #isManuf#">
+                    <div class="manuf-table">
+                      <div id="manuf-headers" class="title row">
+                        <div class="man" data-title="man">Производитель</div>
+                        <div class="oem" data-title="oem">ОЕМ</div>
+                        <div class="model" data-title="model">Модель</div>
+                        <div class="years" data-title="years">Год модели</div>
+                      </div>
+                      <div class="manuf-row row">
+                        <div class="#cat#">#info#</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <div class="card-info">
+              <div class="card-desc #isDesc#">
+                <div class="subtitle">Описание товара</div>
+                <div class="text">#desc#</div>
+              </div>
+              <div class="action-desc">
+                <div class="subtitle">Условия акции</div>
+                <div class="text"></div>
+              </div>
+            </div>
           </div>
-          <div id="full-img-container" onclick="closeFullImg(event)">
-            <svg class="close-btn" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.42859 1.42847L18.5714 18.5713" stroke="#34495E" stroke-linecap="round"/>
-              <path d="M18.1429 1L1 18.1429" stroke="#34495E" stroke-linecap="round"/>
-            </svg>
-            <div id="full-img" class="row">
-              <div class="carousel" data-type="fullImg">
-                <div class="left-btn control"></div>
-                <div class="right-btn control"></div>
-                <div class="carousel-gallery-wrap">
-                  <div class="carousel-gallery">
-                    <div class="carousel-item">
-                      <img src="#image#">
-                    </div>
+        </div>
+        <div id="full-img-container" onclick="closeFullImg(event)">
+          <svg class="close-btn" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.42859 1.42847L18.5714 18.5713" stroke="#34495E" stroke-linecap="round"/>
+            <path d="M18.1429 1L1 18.1429" stroke="#34495E" stroke-linecap="round"/>
+          </svg>
+          <div id="full-img" class="row">
+            <div class="carousel" data-type="fullImg">
+              <div class="left-btn control"></div>
+              <div class="right-btn control"></div>
+              <div class="carousel-gallery-wrap">
+                <div class="carousel-gallery">
+                  <div class="carousel-item">
+                    <img src="#image#">
                   </div>
                 </div>
               </div>
@@ -578,7 +573,7 @@
         <div id="cart">
           <div id="cart-empty">
             <div class="title">Ваша корзина пуста</div>
-            <a id="catalog-link" class="active btn" data-level="1" onclick="openPage(event)">Перейти в каталог товаров</a>
+            <a id="catalog-link" class="active btn" href="../boats/" data-href="_boats" data-level="1" onclick="openPage(event)">Перейти в каталог товаров</a>
             <div class="load-cart">
               <textarea id="load-text" class="text" placeholder="Артикул Количество
 Артикул Количество
@@ -594,15 +589,15 @@
                 <div id="cart-info" class="row">
                   <div>
                     <div class="title">Количество</div>
-                    <div class="text"><span class="amount">0</span></div>
+                    <div class="text"><span class="qty">0</span></div>
                   </div>
                   <div>
                     <div class="title">Сумма РРЦ</div>
-                    <div class="text"><span class="retail-price">0</span>&nbsp;руб.</div>
+                    <div class="text"><span class="amount-retail">0</span>&nbsp;руб.</div>
                   </div>
                   <div>
                     <div class="title">Сумма заказа</div>
-                    <div class="text"><span class="order-price">0</span>&nbsp;руб.</div>
+                    <div class="text"><span class="amount-opt">0</span>&nbsp;руб.</div>
                   </div>
                   <div class="cart-discount">
                     <div class="title">Ориентировочная скидка</div>
@@ -614,73 +609,89 @@
                 </div>
                 <div class="cart-make-order row">
                   <div id="delete-btn" class="basic btn" onclick="deleteSelected()">Удалить выбранное</div>
-                  <div id="order-btn" class="active btn" onclick="orderSentServer()">Оформить заказ</div>
+                  <div id="order-btn" class="active btn" onclick="openOrderForm()">Оформить заказ</div>
+                  <div id="warning-btn"></div>
                 </div>
               </div>
               <form id="order-form" class="row" method="post" enctype="multipart/form-data">
                 <div class="payment">
                   <div class="title">Способ оплаты</div>
-                  <select id="payment-select" class="select">
+                  <select id="payment-select" class="select" required>
+                    <option value="" default selected hidden disabled>Выберите тип оплаты</option>
                     <option value="1">Безналичный расчет</option>
                     <option value="2">Наличный расчет</option>
+                    <option value="4">Депозит</option>
                     <option value="3">Прочее</option>
                   </select>
                 </div>
                 <div class="partner">
                   <div class="title">Название контрагента</div>
                   <select id="partner-select" class="select" required>
-                    <option value="" selected>Выберите контрагента</option>
+                    <option value="" default selected hidden disabled>Выберите контрагента</option>
+                    <option value="#value#">#partner#</option>
+                  </select>
+                </div>
+                <div class="documents">
+                  <div class="title">Отгрузочные документы</div>
+                  <select id="documents-select" class="select" required>
+                    <option value="" default selected hidden disabled>Выберите</option>
+                    <option value="0">Не вкладывать</option>
+                    <option value="1">Вкладывать</option>
                   </select>
                 </div>
                 <div class="delivery">
                   <div class="title">Тип доставки</div>
-                  <select id="delivery-select" class="select" required>
-                    <option value="" selected="">Выберите тип доставки</option>
+                  <select id="delivery-select" class="select" required onchange="toggleOrderAddress(this)">
+                    <option value="" default selected hidden disabled="">Выберите тип доставки</option>
                     <option value="1">Самовывоз</option>
                     <option value="2">Курьер</option>
                     <option value="3">Транспортная компания</option>
-                </select>
+                  </select>
                 </div>
                 <div class="address">
                   <div class="title">Адрес доставки</div>
-                  <select id="address-select" class="select">
-                    <option value='' selected>Выберите адрес доставки</option>
+                  <select id="address-select" class="select" required>
+                    <option value="" default selected hidden disabled>Выберите адрес доставки</option>
+                    <option value="#value#">#address#</option>
                   </select>
                 </div>
                 <div class="comment">
                   <div class="title">Комментарий к заказу</div>
-                  <textarea id="comment" maxlength="300" oninput="countSigns(this)"></textarea>
+                  <textarea id="order-comment" maxlength="300" oninput="countSigns(this)"></textarea>
                   <div class="counter text light">Знаков осталось: <span id="textarea-counter">300</span></div>
                 </div>
                 <div id="order-info" class="text red">Обратите внимание!<br/>Будет создано несколько заказов: (<span id="order-names"></span>)</div>
-                <div class="order active btn" onclick="">Заказать</div>
+                <div class="basic btn" onclick="closeOrderForm()">Отменить</div>
+                <div class="order active btn" onclick="orderSentServer()">Заказать</div>
               </form>
-              <div class="copy-container">
-                <div class="copy basic btn" onclick="copyCart()">Копировать корзину</div>
-                <table id="cart-table">
-                  <tbody>
-                    <tr data-id="#object_id#">
-                      <td>#title#</td>
-                      <td>#articul#</td>
-                      <td class="qty">#qty#</td>
-                      <td class="total">0</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <textarea id="cart-copy"></textarea>
-              </div>
               <div class="cart-list">
                 <div class="table-head row">
                   <div id="check-all" class="check" onclick="toggleAllCart(event)">
                     <div class="checkbox white icon"></div>
                   </div>
-                  <div class="name">Наименование</div>
+                  <div class="name">
+                    <div>Наименование</div>
+                    <div class="copy-container col">
+                      <div class="copy basic btn" onclick="copyCart()">Копировать корзину</div>
+                      <table id="cart-table">
+                        <tbody>
+                          <tr data-id="#id#">
+                            <td>#title#</td>
+                            <td>#articul#</td>
+                            <td class="qty">#qty#</td>
+                            <td class="total">0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <textarea id="cart-copy"></textarea>
+                    </div>
+                  </div>
                   <div class="list-wrap row">
                     <div class="prop articul hidden-xs">Артикул</div>
 
                     <div class="prop action hidden-xs activate checkbox">
                       <div class="head row">
-                        <div class="title">Акция</div>
+                        <div class="title">Тип заказа</div>
                         <svg class="triangle" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5L8 0H0L4 5Z" fill="white"/>
                         </svg>
@@ -704,12 +715,12 @@
             </div>
             <div class="cart-list">
               <div id="cart-rows" class="table-body">
-                <div class="cart-row row manage checked #status#" data-id="#object_id#" data-action-id="0">
+                <div class="cart-row row manage checked #status#" data-id="#id#" data-action-id="0">
                   <div class="check" onclick="toggleInCart(event)">
                     <div class="checkbox icon"></div>
                   </div>
                   <div class="name">
-                    <a class="row" href="../catalog_cart/product.html?#object_id#" target="_blank">
+                    <a class="row" onclick="showFullCard(#object_id#)">
                       <div class="img-wrap row">
                         <img src="#image#" onerror="replaceImg(this)">
                       </div>
@@ -728,23 +739,25 @@
                     <div class="prop amount">
                       <div class="title">Кол-во штук</div>
                       <div class="value qty in-cart">
-                        <div class="qty-box row">
-                          <div class="btn-minus" tooltip="Удалить" onclick="changeCart(event)">-</div>
-                          <input class="choiced-qty text light" type="text" value="#qty#" data-id="#object_id#" data-free-qty="#free_qty#" data-arrive-qty="#wait_qty#" data-warehouse-qty="#warehouse_qty#" autocomplete="off" onchange="changeCart(event)" onblur="changeCart(event)" onfocus="onFocusInput(this)" onkeypress="return checkValue(event)">
-                          <div class="btn-plus" tooltip="Добавить" onclick="changeCart(event)">+</div>
-                        </div>
-                        <div class="tooltips row">
-                          <div class="free-qty #isFree# row" tooltip="В наличии">
-                            <span class="free-qty icon"></span>
-                            <span class="text green">#free_qty#&nbsp;шт.</span>
+                        <div>
+                          <div class="qty-box row">
+                            <div class="btn-minus" tooltip="Удалить" onclick="changeCart(event)">-</div>
+                            <input class="choiced-qty text light" type="text" value="#qty#" data-id="#id#" data-qty="#total_qty#" autocomplete="off" onchange="changeCart(event)" onblur="changeCart(event)" onfocus="onFocusInput(this)" onkeypress="return checkValue(event)">
+                            <div class="btn-plus" tooltip="Добавить" onclick="changeCart(event)">+</div>
                           </div>
-                          <div class="arrive-qty #isArrive# row" tooltip="Ожидается">
-                            <span class="arrive-qty icon"></span>
-                            <span class="text ligth">#arrive_qty#&nbsp;шт.&nbsp;#arrive_date#</span>
-                          </div>
-                          <div class="warehouse-qty #isWarehouse# row" tooltip="Склад">
-                            <span class="warehouse-qty icon"></span>
-                            <span class="text">#warehouse_qty#&nbsp;шт.</span>
+                          <div class="tooltips row">
+                            <div class="free-qty #isFree# row" tooltip="В наличии">
+                              <span class="free-qty icon"></span>
+                              <span class="text green">#free_qty#&nbsp;шт.</span>
+                            </div>
+                            <div class="arrive-qty #isArrive# row" tooltip="Ожидается">
+                              <span class="arrive-qty icon"></span>
+                              <span class="text ligth">#arrive_qty#&nbsp;шт.&nbsp;#arrive_date#</span>
+                            </div>
+                            <div class="warehouse-qty #isWarehouse# row" tooltip="Склад">
+                              <span class="warehouse-qty icon"></span>
+                              <span class="text">#warehouse_qty#&nbsp;шт.</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -753,7 +766,7 @@
                     </div>
                     <div class="prop price">
                       <div class="title">Цена</div>
-                      <div class="value">#price#</div>
+                      <div class="value">#price_cur#</div>
                     </div>
                     <div class="prop total">
                       <div class="title">Итого</div>
@@ -768,7 +781,7 @@
       </div>
     </div>
 
-    <div id="alerts-container" class="row" onclick="closeMessages(event)">
+    <div id="alerts-container" class="row" onclick="closeAlerts(event)">
       <div class="alerts pop-up">
         <div class="alerts-title row">
           <div class="row">
@@ -927,25 +940,20 @@
 
     <div id="loader">
       <div class="loader icon"></div>
-      <div class="message"></div>
+      <div class="text"></div>
     </div>
 
-    <!-- Сообщение об ошибке -->
     <div id="message-container" class="row">
       <svg class="close-btn" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.42859 1.42847L18.5714 18.5713" stroke="#34495E" stroke-linecap="round" />
-        <path d="M18.1429 1L1 18.1429" stroke="#34495E" stroke-linecap="round" />
+        <path d="M1.42859 1.42847L18.5714 18.5713" stroke="#FFFFFF" stroke-linecap="round"/>
+        <path d="M18.1429 1L1 18.1429" stroke="#FFFFFF" stroke-linecap="round"/>
       </svg>
       <div class="text"></div>
     </div>
 
-    <!-- Кнопка "Наверх страницы" -->
-    <svg id="up-btn" onclick="goToTop()" width="38" height="31" viewBox="0 0 38 31" fill="none"
-      xmlns="http://www.w3.org/2000/svg">
-      <rect x="0.5" y="0.5" width="37" height="30" rx="4.5" fill="#454D56" fill-opacity="0.6" stroke="white" />
-      <path
-        d="M18.925 11.225C18.625 10.925 18.225 10.925 17.925 11.225L10.225 18.925C9.925 19.225 9.925 19.625 10.225 19.825C10.525 20.125 10.925 20.125 11.225 19.825L18.525 12.825L25.825 19.825C26.125 20.125 26.525 20.125 26.825 19.825C27.125 19.525 27.125 19.125 26.825 18.925L18.925 11.225Z"
-        fill="white" />
+    <svg id="up-btn" onclick="goToTop()" width="38" height="31" viewBox="0 0 38 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.5" y="0.5" width="37" height="30" rx="4.5" fill="#454D56" fill-opacity="0.6" stroke="white"/>
+      <path d="M18.925 11.225C18.625 10.925 18.225 10.925 17.925 11.225L10.225 18.925C9.925 19.225 9.925 19.625 10.225 19.825C10.525 20.125 10.925 20.125 11.225 19.825L18.525 12.825L25.825 19.825C26.125 20.125 26.525 20.125 26.825 19.825C27.125 19.525 27.125 19.125 26.825 18.925L18.925 11.225Z" fill="white"/>
     </svg>
 
     <div class="footer">

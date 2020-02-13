@@ -104,7 +104,7 @@
                             <a id="exit" class="item" class="menu-item" href="#">Выйти</a>
                         </div>
                     </div>
-                    <div class="alerts icon" onclick="showAlerts()">
+                    <div class="alerts icon" onclick="openPopUp('alerts-container')">
                         <div class="qty in-circle row">12</div>
                     </div>
                 </div>
@@ -315,7 +315,7 @@
     </div>
 
     <!-- Окно уведомлений -->
-    <div id="alerts-container" class="row" onclick="closeMessages(event)">
+    <div id="alerts-container" class="row" onclick="closePopUp(event)">
         <div class="alerts pop-up">
             <div class="alerts-title row">
                 <div class="row">
@@ -493,8 +493,8 @@
         </div>
     </div>
 
-    <!-- Окно уведомлений -->
-    <div id="alerts-container1" class="row" onclick="closeMessages(event)">
+    <!-- Окно "Мастер создания рекламации" -->
+    <div id="alerts-container1" class="row" onclick="closePopUp(event)">
         <div class="alerts pop-up">
             <div class="alerts-title row">
                 <div class="row">
@@ -572,16 +572,5 @@
 
 
     <script src="../js/main.js"></script>
-    <script>
-        'use strict';
-        const alertsContainer1 = document.querySelector('#alerts-container1');
-        const closeBtn = document.querySelector('#close-btn');
-
-        closeBtn.addEventListener('click', function() {
-            console.log('test');
-            alertsContainer1.style.display = 'none';
-        });
-
-    </script>
 </body>
 </html>

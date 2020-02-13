@@ -1,6 +1,5 @@
 //////////////////////поведение форм "Добавить магазин" и "Заявка на дилерство"///////////////////////////////////////////////
 
-console.log('I am visible!');
 //сохранять маленький шрифт при потере фокуса
 const inputForm = document.querySelectorAll('.form-input');
 const label = document.querySelectorAll('.label');

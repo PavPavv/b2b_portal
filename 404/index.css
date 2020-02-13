@@ -1,40 +1,3 @@
-/* transfer to main.css */
-.logo-mob{
-    display: none;
-}
-.menu-mob{
-    display: none;
-}
-.menu-mob.overlay{
-    opacity: 0;
-    visibility: hidden;
-    display: block;
-    position: fixed;
-    justify-content: center;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(73, 85, 100, 0.6);
-    z-index: 200;
-    transition: all linear 0.3s;
-}
-.menu-mob.body{
-    z-index: 201;
-    position: fixed;
-    display: block;
-    top:0;
-    left: -100%;
-    width: 400px;
-    height: 100%;
-    padding: 30px 30px;
-    background: #ffffff;
-    transition: all linear 0.6s;
-}
-.active-mob{
-    opacity: 1!important;
-    visibility: initial!important;
-}
 /* 404 css */
 .center{
     display: flex;
@@ -49,8 +12,10 @@
 }
 
 .f0f{
-    width: 266px;
-    height: 181px;
+    width: 13.85vw;
+    height: 9.42vw;
+    min-width: 266px;
+    min-height: 181px;
     background: url('../img/404.svg') no-repeat center center;
     background-size: contain;
 }

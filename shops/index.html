@@ -106,7 +106,7 @@
                             <a id="exit" class="item" class="menu-item" href="#">Выйти</a>
                         </div>
                     </div>
-                    <div class="alerts icon" onclick="showAlerts()">
+                    <div class="alerts icon" onclick="openPopUp('alerts-container')">
                         <div class="qty in-circle row">12</div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
             <!-- TABLE -->
             <div class="shops-wrap">
                 <div class="shops">
-                    <div class="basic btn addShop">Добавить магазин</div>
+                    <div class="basic btn addShop" id="addShop">Добавить магазин</div>
                     <div class="shop">
                         <div>
                            <div class="checked full">
@@ -249,7 +249,7 @@
 
 
     <!-- Шаблон окна уведомлений -->
-    <div id="alerts-container" class="row" onclick="closeMessages(event)">
+    <div id="alerts-container" class="row" onclick="closePopUp(event)">
         <div class="alerts pop-up">
             <div class="alerts-title row">
                 <div class="row">
@@ -453,6 +453,11 @@
                 zoom: 7
             });
         }
+    </script>
+    <!-- показать и скрыть модальнное окно "Добавить магазин" -->
+    <script>
+        'use strict';
+        
     </script>
     <script src="../js/main.js"></script>
 </body>

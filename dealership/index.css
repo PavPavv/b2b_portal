@@ -64,7 +64,7 @@ form{
     outline: none;
     border: 1px solid rgba(52, 73, 94, 0.4);
     font-family: 'Open Sans';
-    font-size: 0.975em;
+    font-size: 0.75em;
     color: #34495E;
 }
 .form form input:focus{
@@ -76,7 +76,7 @@ form{
     top: 0.25625vw;
     left: 0.8291vw;
     color: #F05A28;
-    font-size: 0.675em;
+    font-size: 0.775em;
 }
 form div{
     position: relative;
@@ -88,11 +88,11 @@ form div{
 }
 form div label{
     position: absolute;
-    top: 0.1812vw;
+    top: 0.3812vw;
     left: 0.52vw;
     pointer-events: none;
     font-family: 'Open Sans';
-    font-size: 0.875em;
+    font-size: 0.9em;
     color: #8D8E99;
     transition: .5s;
 }

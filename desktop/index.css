@@ -1,0 +1,23 @@
+.desktop-wrap{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2vw;
+    background: lightgreen;
+}
+.col1{
+    width: 100%;
+}
+.desktop-wrap .col1{
+    border: 1px solid red;
+    display: flex;
+}
+.desktop-wrap .row1{
+    border: 1px solid #000;
+}
+.row1{
+    width: 30%;
+}
+.row2{
+    width: 70%;
+}
