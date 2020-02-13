@@ -219,9 +219,10 @@
                     <div class="complaint-photo">
                         <h3>Загрузите фото, видео или документы</h3>
                         <div class="upload-content">
-                            <div class="files">
+                            <div class="files" id="files">
                                <div class="image-item">
-                                   <form method="post" enctype="multipart/form-data" id="form-upload">
+                                   <form method="post" enctype="multipart/form-data" id="frm_upload" data-recl="ba95985a-4c15-11ea-8258-002590467a5e">
+                                        <input type="hidden" name="recl_id" value="ba95985a-4c15-11ea-8258-002590467a5e">
                                         <div class="file-select-btn">
                                             <div class="image-upload">
                                                 <svg width="100%" height="100%" viewBox="0 0 160 173" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -250,6 +251,7 @@
                                             </div>
                                             <input type="file" name="UserFile[]" id="user_files" multiple="multiple">
                                         </div>
+                                        <div class="file_select_btn" style="display: none;">загрузить</div>
                                         <input type="submit" value="Отправить">
                                     </form>
                                </div>
@@ -269,11 +271,72 @@
                                    <img src="../img/content/upload5.png" alt="">
                                </div>
                             </div>
+                            <img id="full">
                         </div>
                     </div>
                 </div>
            </main>
-           <!-- Модальное окно чата -->
+
+           <!-- Модальное окно чата  -->
+            <div class="chatBlock chat-wrap">
+                <div class="chat-content chat_cont">
+                    <div class="chat-header chat-head">
+                        <div class="close-chat">
+                            <svg class="close-btn" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.42859 1.42847L18.5714 18.5713" stroke="#34495E" stroke-linecap="round" />
+                                <path d="M18.1429 1L1 18.1429" stroke="#34495E" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="chat-message chat chat-body">
+                        <div class="data">12.05.2019</div>
+                        <div class="you">
+                            <div class="name message-user">Вы: <span>17:59</span></div>
+                            <div class="text">Краска на шлеме отдирается как пленка, чуть задел и видно как пленка отходит.</div>
+                        </div>
+                        <div class="data">12.05.2019</div>
+                        <div class="interlocutor">
+                            <div class="name">Менеджер:</div>
+                            <div class="text">Добрый день, изделие новое или шлем был продан клиенту и был в эксплуатации - если был, то в течение какого промежутка
+                            времени?</div>
+                        </div>
+                        <div class="you">
+                            <div class="name">Вы:</div>
+                            <div class="text">Здравствуйте, шлем новый, не был в эксплуатации. Был в упаковке, достали из коробки с потертым козырком. Так не должно быть, так как его даже не эксплуатировали.</div>
+                        </div>
+                        <div class="interlocutor">
+                            <div class="name">Менеджер:</div>
+                            <div class="text">Добрый вечер, высылайте шлем в наш адрес Деловыми Линиями с официальными
+                                бухгалтерскими накладными</div>
+                        </div>
+                    </div>
+                    <div class="chat-form chat-footer">
+                        <form method="POST" lpformnum="1" enctype="multipart/form-data" name="message" id="message"
+                            data-recl="ba95985a-4c15-11ea-8258-002590467a5e" data-user="Вы:">
+                            <input type="hidden" name="recl[recl_id]" value="ba95985a-4c15-11ea-8258-002590467a5e">
+                            <div class="message chat-send">
+                                <textarea name="recl[comment]" placeholder="Ваше сообщение..." autocomplete="off"></textarea>
+                            </div>
+                            <div class="chat-btn send">
+                                <input type="submit" value="">
+                                <div class="chat-btn-icon submit-icon">
+                                    <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M0.972656 14.4689L17.4309 7.41535L0.972656 0.361816V5.8479L12.7286 7.41535L0.972656 8.98281V14.4689Z"
+                                            fill="#D0D0D4" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+           <!-- Модальное окно чата --
            <div class="chat-wrap">
                <div class="chat-head">
                    <div class="close-chat">
@@ -362,6 +425,9 @@
                    </form>
                </div>
            </div>
+        -->
+
+
         </div>
     </div>
 
@@ -768,7 +834,10 @@
 
 
     </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
     <script src="../js/main.js"></script>
+    <script type="text/javascript" id="recl_js" src="/js/chat_and_uplfile.js" data-recl="ba95985a-4c15-11ea-8258-002590467a5e"></script>
 
 </body>
 </html>
