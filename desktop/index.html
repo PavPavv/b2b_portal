@@ -132,11 +132,26 @@
 				</div>
 				<div class="desktop-wrap">
 					<div class="col1">
-						<div class="row1">123</div>
+						<div class="row1">
+							<div class="switch">
+								<button class="toggle">Товары</button>
+								<button class="toggle toggle-active">Оплаты</button>
+							</div>
+						</div>
 						<div class="row2">456</div>				
 					</div>
 					<div class="col1">
-						<div class="row1">789</div>
+						<div class="row1">
+							<div class="pane">
+
+							</div>
+							<div class="pane">
+							
+							</div>
+							<div class="pane">
+							
+							</div>
+						</div>
 						<div class="row2">101112</div>
 					</div>
 				</div>
@@ -360,7 +375,24 @@
         </div>
     </div>
 
-    <script src="../js/main.js"></script>
+		
+		<script src="../js/main.js"></script>
+		<script>
+			'use strict';
+			const switchWrap = document.querySelector('.switch');
+			const toggleBtns = switchWrap.querySelectorAll('.toggle');
+
+			for (let i = 0; i < toggleBtns.length; i++) {
+				switchWrap.addEventListener('click', function () {
+					toggleBtns[i].classList.toggle('toggle-active');
+				});
+			}
+
+				// 	toggle.addEventListener('click', () => {
+				// 		toggle.classList.toggle('active-switch');
+				// 	});
+				// 
+		</script>
 </body>
 
 </html>
