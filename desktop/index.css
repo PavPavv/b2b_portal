@@ -6,6 +6,7 @@
 }
 
 .col1{
+	display: flex;
   width: 100%;
 }
 
@@ -51,12 +52,19 @@
 	background: #34495E!important;
 }
 .pane{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	width: 100%;
 	height: 10.93vw;
 	border-radius: 4px;
 	margin-bottom: 10px;
-	padding: 1vw;
+	padding: 1vw 1.5vw 2vw 1vw;
 	color: #ffffff;
+}
+
+.pane:last-child{
+	margin-bottom: 0;
 }
 
 .status_1{
@@ -83,10 +91,137 @@
 	display: flex;
 	align-items: center;
 }
+
 .pane-name{
 	font-size: 1.5em;
 	font-weight: 600;
+	white-space: nowrap;
 	margin-left: 1vw;
 	letter-spacing: 0.01em;
 	color: #ffffff;
+}
+
+.pane-body{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.quantity{
+	font-size: 1.5em;
+	line-height: 1.8em;
+	letter-spacing: 0.01em;
+}
+
+.money{
+	font-size: 2.525em;
+	font-weight: 600;
+}
+
+.banners{
+	display: flex;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.banners a{
+	width: calc(98.6% / 3);
+}
+
+.banners a{
+	margin-right: 9px;
+}
+
+.banners a:last-child{
+	margin-right: 0;
+}
+
+.banners img{
+	width: 100%;
+	height: 7.55vw;
+}
+
+.data{
+	display: flex;
+	background:#ffffff;
+}
+
+.desktop-info{
+	width: 34%;
+}
+
+.desktop-info img{
+	width: 100%;
+}
+
+.desktop-data{
+	width: 1060px;
+	height: 34.79vw;
+	margin-top: 1vw;
+	margin-bottom: 1vw;
+	padding-left: 1vw;
+	border-left: 1px solid rgba(133, 150, 166, 0.2);
+	background: #ffffff;
+}
+
+.desktop-num{
+	margin: 0 30px;
+	padding: 1px 10px;
+	border-radius: 15px;
+	color: #ffffff;
+	font-size: 0,875em;
+	font-weight: bold;
+}
+
+.moreSpace{
+	margin: 0 60px!important;
+}
+
+.table-menu{
+	display: flex;
+	padding-bottom: 10px;
+}
+
+.restart{
+	padding: 4px 13px;
+	border-radius: 3px;
+	border: none;
+	font-size: 0.9em;
+	line-height: 1.2em;
+	font-weight: 600;
+	color: #34495E;
+	background: #D4D7DB;
+}
+
+.select-orders{
+	display: flex;
+	align-items: center;
+	margin-left: 1vw;
+}
+
+.custom-select{
+	margin-right: 8px;
+	width: 1em;
+	height: 1em;
+	border-radius: 2px;
+	background: #EBEBEB;
+}
+
+.select-name{
+	font-size: 0.9em;
+	line-height: 1.2em;
+	font-weight: 600;
+	color: #34495E;
+}
+
+.desktop-table{
+	width: 100%;
+	height: 600px;
+	overflow: hidden;
+  display: block;
+  overflow-y: auto;
+}
+
+.desktop-table tr td.row + .desktop-num {
+	padding-left: 5vw!important;
 }
